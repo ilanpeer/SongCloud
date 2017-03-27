@@ -5,7 +5,9 @@
 import React from 'react';
 
 
-// Dummy component.
+/**
+ * Dumb component.
+ */
 // export default function Greeting(props) {
 //   // console.log("props", props);
 //   return (
@@ -16,14 +18,16 @@ import React from 'react';
 //   )
 // }
 
-
-// Smart component.
+/**
+ * Smart component.
+ */
 export default class Greeting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       count: 0,
-      isVisible: true
+      isVisible: true,
+      unicorn: false
     }
   }
 
@@ -39,36 +43,50 @@ export default class Greeting extends React.Component {
 
   showTitle() {
     // if (this.state.isVisible) {
-    //
     //   this.setState({
     //     isVisible: false
     //   });
-    //
     // }
     // else {
     //   this.setState({
     //     isVisible: true
     //   });
     // }
-
-    let newVisible = !this.state.isVisible;
-      this.setState({
-        isVisible: newVisible
+    this.setState({
+      isVisible: !this.state.isVisible,
+      //unicorn: true
     })
+
   }
 
+  showHide() {
+    if (this.state.isVisible === false) {
+      return <div><h2>Hi, my name i{ this.props.hide }....</h2><img src="https://img.clipartfest.com/5ee544cca5d8c8d8b8c18b8327c48f15_clip-art-illustration-of-a-clipart-counting-sheep-at-night_2400-1246.jpeg"/></div>
+    }
+    else {
+      return <h2>Hi, my name is { this.props.name }, i'm { this.props.age } years old.</h2>
+    }
+
+  }
+
+  // unicorn() {
+  //   if (this.state.unicorn === true) {
+  //     return <div><img src="http://www.pluggedin.com/content/images/content-image/unicorn.gif"/></div>;
+  //   }
+  //
+  // }
+
   render() {
-    const Visibility = this.state.isVisible ? <p>This button has been pressed: { this.state.count } times.</p> : null;
+    const Visibility = this.state.isVisible ? <div><p>This button has been pressed: { this.state.count } times.</p>        <input onClick={ () => this.handleIncrement() } type="button" value="Click"/>
+    </div> : null;
 
 
     return (
       <div>
-        <h2>Hi, my name is { this.props.name }, i'm { this.props.age }'s years old.</h2>
+        <input onClick={ () => this.showTitle() } type="button" value="Show Counter"/>
+        { this.showHide() }
         { Visibility }
-        <input onClick={ () => this.handleIncrement() } type="button" value="Click"/>
-        <br/>
-        <input onClick={ () => this.showTitle() } type="button" value="Toggle Visibility"/>
-
+        {/*{ this.unicorn }*/}
       </div>
     );
 

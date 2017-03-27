@@ -8,6 +8,7 @@ const Root = () => {
       <h1>Song Cloud</h1>
       <Greeting name="ilan"
                 age='40'
+                hide="zzzzzzzzzzzzzz"
       />
     </div>
   );
