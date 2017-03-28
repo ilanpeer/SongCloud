@@ -1,30 +1,29 @@
-import Greeting from './Greeting.js';
 import React from 'react';
+import Singup from './signup';
+import Singin from './signin';
+import Topbar from './topbar';
+import Expolre from './explore';
+import Playlists from './playlists';
+import Player from './player';
+
 
 export default function Root() {
-  const data = {
-    name: 'ilan',
-    age: 40,
-    extra: "zzzzzzzzzzzzzz"
-  };
 
   return (
     <div>
       <h1>Song Cloud</h1>
-      <Greeting name={ data.name }
-                age= { data.age }
-                hide= { data.extra }
-      />
-
-      {/*Song Cloud
       <Singup/>
       <Singin/>
 
       <Topbar/>
-      <Expolre/>
 
+      <main>
+        <Expolre/>
+        <Playlists/>
+       </main>
 
-      */}
+      <Player/>
+
     </div>
   );
 };

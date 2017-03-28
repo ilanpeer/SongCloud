@@ -1,5 +1,3 @@
-
-// TODO: ESlint disabled.
 import React from 'react';
 
 
