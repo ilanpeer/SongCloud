@@ -1,6 +1,4 @@
-/**
- * Created by ilan on 26/03/2017.
- */
+
 // TODO: ESlint disabled.
 import React from 'react';
 

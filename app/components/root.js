@@ -15,6 +15,16 @@ export default function Root() {
                 age= { data.age }
                 hide= { data.extra }
       />
+
+      {/*Song Cloud
+      <Singup/>
+      <Singin/>
+
+      <Topbar/>
+      <Expolre/>
+
+
+      */}
     </div>
   );
 };
