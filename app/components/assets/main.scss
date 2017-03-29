@@ -99,7 +99,7 @@ input[type=password]:focus::-webkit-input-placeholder {
 
 // player.js
 
-.player {
+.playerfooter {
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -115,7 +115,6 @@ input[type=password]:focus::-webkit-input-placeholder {
 img[alt="Song thumbnail"] {
   width: 50px;
   height: 50px;
-
 }
 
 // singin.js
@@ -166,5 +165,20 @@ img[alt="Song thumbnail"] {
   height: 30px;
   font-size: 13px;
   text-transform: uppercase;
+}
 
+// songcard.js
+
+.songcard {
+  width: 220px;
+  height: 140px;
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+
+}
+
+.clock {
+  font-size: 10px;
+  color: #4A4A4A;
+  line-height: 13px;
 }

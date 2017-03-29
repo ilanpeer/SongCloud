@@ -4,6 +4,7 @@ import Singin from './signin';
 import Topbar from './topbar';
 import Expolre from './explore';
 import Playlists from './playlists';
+import Songcard from './songcard';
 import Player from './player';
 
 
@@ -14,11 +15,12 @@ export default function Root() {
       <Topbar/>
 
       {/*<Singup/>*/}
-      <Singin/>
+      {/*<Singin/>*/}
 
       <main>
         {/*<Expolre/>*/}
         {/*<Playlists/>*/}
+        <Songcard/>
       </main>
 
       <Player/>
