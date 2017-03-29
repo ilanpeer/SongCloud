@@ -3,7 +3,7 @@ import React from 'react';
 export default function Signup() {
 
   return (
-    <div className="formlayout">
+    <div className="formgrid">
       <i className="fa fa-mixcloud signin-logo" aria-hidden="true"/>
       <h1>Song Cloud</h1>
       <form action="" method="">

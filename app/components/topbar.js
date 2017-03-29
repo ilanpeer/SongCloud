@@ -7,7 +7,7 @@ export default function Topbar() {
       <nav>
         <div className="topnav">
           <ul className="menunav">
-            <li><img alt="Logo" src="#"/></li>
+            <li><i className="fa fa-mixcloud nav-logo" aria-hidden="true"/> SoundCloud</li>
             <li><a href="#">Explore</a></li>
             <li><a href="#">Playlists</a></li>
           </ul>
@@ -17,5 +17,5 @@ export default function Topbar() {
       </nav>
     </div>
   );
-  }
+}
 
