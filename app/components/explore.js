@@ -4,14 +4,14 @@ export default function Explore() {
 
   return (
     <div>
-      <p>explore component</p>
       <div>
-        <h4>Categories list:</h4>
-        <ul>
+        <ul className="categories">
           <li>DUBSTEP</li>
           <li>HOUSE</li>
           <li>PROGRESSIVE</li>
           <li>TECH</li>
+          <li>TRANCE</li>
+          <li>TRANCE</li>
           <li>TRANCE</li>
         </ul>
       </div>

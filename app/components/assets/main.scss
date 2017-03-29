@@ -1,0 +1,124 @@
+* {
+  //border: 1px solid red;
+}
+
+main, header, footer, figcaption, section, div, ul, li, h2, h3, p, a {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  list-style: none;
+  text-decoration: none;
+}
+
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  //background-color: #DDE4E6;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+#root, .maindiv, .formlayout {
+  width: 100%;
+  height: 100%;
+}
+
+// topbar.js
+
+.topnav {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #222222;
+}
+
+.menunav li {
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.topnav input {
+  width: 200px;
+  padding: 6px 10px 6px 30px;
+  background-color: transparent;
+}
+
+// player.js
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #222222;
+}
+
+// singin.js
+
+.signin-logo {
+  font-size: 100px;
+  color: #2196F3;
+}
+
+.formlayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formlayout input {
+  width: 416px;
+  height: 48px;
+  background: linear-gradient(to bottom,rgba(255,255,255,0) 100%,#2196F3 100%);
+}
+
+.formlayout form {
+  width: 420px;
+}
+
+.formlayout h2 {
+  font-size: 40px;
+  color: #2196F3;
+}
+
+.formlayout h4 {
+  font-size: 22px;
+  color: #000000;
+}
+
+.formlayout label {
+  display: block;
+  color: #2196F3;
+}
+
+.formlayout button {
+  display: block;
+
+  //color: #2196F3;
+}

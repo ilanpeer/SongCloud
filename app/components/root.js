@@ -10,17 +10,16 @@ import Player from './player';
 export default function Root() {
 
   return (
-    <div>
-      <h1>Song Cloud</h1>
-      <Singup/>
-      <Singin/>
-
+    <div className="maindiv">
       <Topbar/>
 
+      {/*<Singup/>*/}
+      <Singin/>
+
       <main>
-        <Expolre/>
-        <Playlists/>
-       </main>
+        {/*<Expolre/>*/}
+        {/*<Playlists/>*/}
+      </main>
 
       <Player/>
 
