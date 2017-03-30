@@ -36,12 +36,12 @@ export default class Explore extends React.Component {
             <ul>
               {
                 this.state.songs.map((song, i) => <li key={ song.id }>
-                  <Songcard
-                    image={ song.artwork_url }
-                    title={ song.title }
-                    duration={ song.duration }
-                  />
-                </li>
+                    <Songcard
+                      image={ song.artwork_url }
+                      title={ song.title }
+                      duration={ song.duration }
+                    />
+                  </li>
                 )}
             </ul>
           </div>
