@@ -41,16 +41,12 @@ a:active {
   height: 100%;
 }
 
-input[type=email]::-webkit-input-placeholder,
-input[type=text]::-webkit-input-placeholder,
-input[type=password]::-webkit-input-placeholder,
-input[type=email]:focus::-webkit-input-placeholder,
-input[type=text]:focus::-webkit-input-placeholder,
-input[type=password]:focus::-webkit-input-placeholder {
-  color: #2196f3;
+body {
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
-// topbar.js
+// Topbar.js
 
 .topnav {
   display: flex;
@@ -97,7 +93,7 @@ input[type=password]:focus::-webkit-input-placeholder {
   background-color: transparent;
 }
 
-// player.js
+// Player.js
 
 .playerfooter {
   display: flex;
@@ -111,10 +107,14 @@ input[type=password]:focus::-webkit-input-placeholder {
   background: #FBFBFB;
 }
 
-
 img[alt="Song thumbnail"] {
   width: 50px;
   height: 50px;
+}
+
+p.songtitle {
+  font-size: 11px;
+  color: #4A4A4A;
 }
 
 // singin.js
@@ -167,7 +167,7 @@ img[alt="Song thumbnail"] {
   text-transform: uppercase;
 }
 
-// songcard.js
+// Songcard.js
 
 .songcard {
   width: 220px;
@@ -177,8 +177,27 @@ img[alt="Song thumbnail"] {
 
 }
 
+.cardimage {
+  width: 200px;
+  height: 85px;
+  background: #eeeeee;
+  border: 1px solid #D8D8D8;
+}
+
+.cardtitle {
+  font-size: 11px;
+  color: #4A4A4A;
+}
+
 .clock {
   font-size: 10px;
   color: #4A4A4A;
   line-height: 13px;
+}
+
+//TEMP
+
+div > h1 {
+  font-size: 120px;
+  color: #2196F3;
 }
