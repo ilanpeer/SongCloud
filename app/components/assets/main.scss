@@ -38,11 +38,11 @@ a:active {
 
 #root, .maindiv, .formgrid {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 body {
-  padding-top: 70px;
+  padding-top: 110px;
   padding-bottom: 70px;
 }
 
@@ -58,15 +58,7 @@ body {
   height: 64px;
   width: 100%;
   background: #2196F3;
-}
-
-.divnav {
-  display: inline-flex;
-  align-items: baseline;
-}
-
-.menunav {
-  padding-left: 10px;
+  padding: 0 0 7.5px 10px;
 }
 
 .nav-logo {
@@ -78,14 +70,19 @@ body {
   display: inline-block;
 }
 
+.menunav li span {
+  font-family: 'Roboto-Regular', sans-serif;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
 .menunav a {
+  font-family: 'Roboto-Regular', sans-serif;;
   font-size: 15px;
   color: #FFFFFF;
 }
 
 .menunav li:nth-child(1) {
-  font-size: 20px;
-  color: #FFFFFF;
   padding-right: 40px;
 }
 
@@ -93,19 +90,23 @@ body {
   padding-right: 20px;
 }
 
-.topnav input {
+.menunav input {
   width: 330px;
   height: 25px;
   background: #1E88E5;
   border: 1px solid #D8D8D8;
-  border-radius: 25px;
+  border-radius: 32px;
 }
 
-.topnav button {
-
+.menunav input::placeholder {
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-family: 'Roboto-Light', sans-serif;;
+  font-size: 14px;
+  padding-left: 32px;
 }
 
-.topnav button {
+.menunav button {
   font-family: 'Roboto-Light', sans-serif;;
   font-size: 15px;
   overflow: visible;
@@ -193,38 +194,86 @@ p.songtitle {
   text-transform: uppercase;
 }
 
-// Songcard.js
+// Genrebar.js
 
-.songcard {
-  width: 220px;
-  height: 140px;
-  background: #FFFFFF;
-  border: 1px solid #D8D8D8;
-
+.genrebar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  background: #DDE4E6;
+  padding-left: 10px;
 }
 
-.cardimage {
-  width: 200px;
-  height: 85px;
-  background: #eeeeee;
-  border: 1px solid #D8D8D8;
+.genrebar li {
+  display: inline-block;
+  font-family: 'Roboto-Light', sans-serif;
+  font-size: 15px;
+  color: #000000;
 }
 
-.cardtitle {
-  font-size: 11px;
-  color: #4A4A4A;
-  font-weight: 500;
-}
+  // Explore.js card list
 
-.cardduration {
-  font-size: 10px;
-  color: #4A4A4A;
-  line-height: 13px;
-}
+  .explorelist {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: space-around;
+  }
 
-//TEMP
+  .exploretitle {
+    //font-family: 'Roboto-Medium', sans-serif;
+    font-size: 23px;
+    color: #000000;
+    padding-left: 15px;
+  }
 
-div > h1 {
-  font-size: 120px;
-  color: #2196F3;
-}
+  // Songcard.js
+
+  .cardunit {
+    padding: 15px;
+  }
+
+  .songcard {
+    width: 220px;
+    height: 140px;
+    background: #FFFFFF;
+    border: 1px solid #D8D8D8;
+  }
+
+  .songcard p {
+    padding: 0 10px 0 10px;
+
+  }
+  .cardimage {
+    width: 200px;
+    height: 85px;
+    background: #eeeeee;
+    border: 1px solid #D8D8D8;
+    display: block;
+    margin: 10px 10px 7px 10px;
+  }
+
+  .cardtitle {
+    font-family: 'Roboto-Regular', sans-serif;
+    font-size: 11px;
+    color: #4A4A4A;
+  }
+
+  .cardduration {
+    font-size: 10px;
+    color: #4A4A4A;
+    line-height: 13px;
+  }
+
+  //TEMP
+
+  .playlists {
+    font-size: 120px;
+    color: #2196F3;
+  }
+

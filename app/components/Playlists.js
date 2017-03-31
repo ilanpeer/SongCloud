@@ -4,7 +4,7 @@ export default function Playlists() {
 
   return (
     <div>
-      <h1>playlists component</h1>
+      <h1 className="playlists">playlists component</h1>
 
     </div>
   );

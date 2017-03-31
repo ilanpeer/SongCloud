@@ -8,17 +8,15 @@ export default function Topbar() {
   return (
     <div>
       <nav className="topnav">
-        <div className="divnav">
           <ul className="menunav">
-            <li><NavLink to="/" exact><i className="fa fa-mixcloud nav-logo" aria-hidden="true"/> SongCloud</NavLink>
+            <li><NavLink to="/" exact><i className="fa fa-mixcloud nav-logo" aria-hidden="true"/> <span>SongCloud</span></NavLink>
             </li>
             <li><NavLink to="/explore" exact activeClassName="selected">Explore</NavLink></li>
             <li><NavLink to="/playlists" exact activeClassName="selected">Playlists</NavLink></li>
+            <li><input type="text" placeholder="search"/></li>
+            <li><button name="button">Logout</button></li>
           </ul>
           {/*<i className="fa fa-search" aria-hidden="true"/>*/}
-          <input type="text" placeholder="SEARCH"/>
-          <button name="button">Logout</button>
-        </div>
       </nav>
     </div>
   );

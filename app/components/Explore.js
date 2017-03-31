@@ -1,5 +1,6 @@
 import React from 'react';
 import Songcard from './Songcard';
+import Genrebar from './Genrebar';
 
 export default class Explore extends React.Component {
   constructor() {
@@ -24,18 +25,20 @@ export default class Explore extends React.Component {
   }
 
   render() {
-    // console.log('state', this.state.songsLoading);
+    console.log('state.songs:', this.state.songs);
     switch (this.state.songsLoading) {
       case 'loading...':
-        return <div>Loading...</div>;
+        return <div className="loading">KAN TAVO ANIMATZIA SHEL -----> Loading...</div>;
       case 'error':
-        return <div>Error!</div>;
+        return <div className="404">AMOD 404 CLASSY -----> Error!</div>;
       case 'loaded':
         return (
-          <div>
-            <ul>
+          <div className="first-div-of-return-from-explore">
+            <Genrebar/>
+            <h1 className="exploretitle">Genre: get from this.state.songs.genre</h1>
+            <ul className="explorelist">
               {
-                this.state.songs.map((song, i) => <li key={ song.id }>
+                this.state.songs.map((song, i) => <li className="cardunit" key={ song.id }>
                     <Songcard
                       image={ song.artwork_url }
                       title={ song.title }
