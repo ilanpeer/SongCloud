@@ -8,7 +8,6 @@ export default function Songcard(props) {
 
     return (((minutes < 10) ? "0" + minutes : minutes) + ":" + ((seconds < 10) ? "0" + seconds : seconds));
   }
-
   // console.log(msToTime(414575));
   return (
     <div className="songcard">

@@ -33,8 +33,17 @@ export default class Explore extends React.Component {
         return <div className="404">AMOD 404 CLASSY -----> Error!</div>;
       case 'loaded':
         return (
-          <div className="first-div-of-return-from-explore">
-            <Genrebar/>
+          <div className="genrediv">
+            <ul className="genrebar">
+              <li><h4>Genres: </h4></li>
+              {
+                this.state.songs.map((genre, i) => <li className="genrebarunit" key={ genre.id }>
+                  <Genrebar genrename={ genre.genre }
+                    />
+                  </li>
+                )
+              }
+            </ul>
             <h1 className="exploretitle">Genre: get from this.state.songs.genre</h1>
             <ul className="explorelist">
               {

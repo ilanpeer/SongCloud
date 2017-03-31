@@ -196,16 +196,21 @@ p.songtitle {
 
 // Genrebar.js
 
-.genrebar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.genrediv {
   position: fixed;
   top: 64px;
   left: 0;
   height: 40px;
   width: 100%;
   background: #DDE4E6;
+
+}
+
+.genrebar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
   padding-left: 10px;
 }
 
