@@ -8,12 +8,19 @@ export default function Songcard(props) {
 
     return (((minutes < 10) ? "0" + minutes : minutes) + ":" + ((seconds < 10) ? "0" + seconds : seconds));
   }
-  // console.log(msToTime(414575));
+
+  function trimTitle(title) {
+    if (title.length >= 25) {
+      return title.slice(0, 26);
+    }
+  }
+
   return (
     <div className="songcard">
       <img className="cardimage" src={props.image}/>
-      <p className="cardtitle">{props.title}</p>
+      <p className="cardtitle">{trimTitle(props.title)}</p>
       <p className="cardduration"><i className="fa fa-clock-o" aria-hidden="true"/> {msToTime(props.duration)}</p>
+      <i className="fa fa-heart-o cardheart" aria-hidden="true"/>
     </div>
   );
 }

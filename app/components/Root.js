@@ -22,7 +22,7 @@ export default function Root() {
         <Topbar/>
         <Switch>
           <Route exact path="/" component={() =>
-          <Redirect to="/explore"/>} />
+            <Redirect to="/explore"/>}/>
           <Route exact path="/explore" component={ Explore }/>
           <Route exact path="/playlists" component={ Playlists }/>
         </Switch>

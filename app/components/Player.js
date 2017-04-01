@@ -4,8 +4,8 @@ export default function Player(props) {
 
   return (
     <div className="playerfooter">
-        <img alt="Song thumbnail" src="#"/>
-        <p className="songtitle">Song Title: <span>title from SoundCloud API</span></p>
+        <img alt="Song thumbnail" src= { props.image } />
+        <p className="playersongtitle"> title from  props.title</p>
       <audio className="player" controls="controls">
           <source src="#" type="audio/mpeg"/>
         </audio>

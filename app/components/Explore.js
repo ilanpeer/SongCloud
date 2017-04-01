@@ -33,29 +33,33 @@ export default class Explore extends React.Component {
         return <div className="404">AMOD 404 CLASSY -----> Error!</div>;
       case 'loaded':
         return (
-          <div className="genrediv">
-            <ul className="genrebar">
-              <li><h4>Genres: </h4></li>
-              {
-                this.state.songs.map((genre, i) => <li className="genrebarunit" key={ genre.id }>
-                  <Genrebar genrename={ genre.genre }
-                    />
-                  </li>
-                )
-              }
-            </ul>
-            <h1 className="exploretitle">Genre: get from this.state.songs.genre</h1>
-            <ul className="explorelist">
-              {
-                this.state.songs.map((song, i) => <li className="cardunit" key={ song.id }>
-                    <Songcard
-                      image={ song.artwork_url }
-                      title={ song.title }
-                      duration={ song.duration }
-                    />
-                  </li>
-                )}
-            </ul>
+          <div className="first-div-return-from-explore">
+            <div className="genrediv">
+              <ul className="genrebar">
+                <li><h4>Genres: </h4></li>
+                {
+                  this.state.songs.map((genre, i) => <li key={ genre.id }>
+                      <Genrebar genrename={ genre.genre }
+                      />
+                    </li>
+                  )
+                }
+              </ul>
+            </div>
+            <div className="explorediv">
+              <h1 className="exploretitle">Genre: get from current/active this.state.songs.genre</h1>
+              <ul className="explorelist">
+                {
+                  this.state.songs.map((song, i) => <li className="cardunit" key={ song.id }>
+                      <Songcard
+                        image={ song.artwork_url }
+                        title={ song.title }
+                        duration={ song.duration }
+                      />
+                    </li>
+                  )}
+              </ul>
+            </div>
           </div>
         );
     }
