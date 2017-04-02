@@ -23,6 +23,8 @@ export default function Root() {
         <Switch>
           <Route exact path="/" component={ () =>
             <Redirect to="/explore/trance"/> }/>
+          <Route exact path="/explore" component={ () =>
+            <Redirect to="/explore/trance"/> }/>
           <Route path="/explore/:genre" component={ Explore }/>
           <Route exact path="/playlists" component={ Playlists }/>
         </Switch>

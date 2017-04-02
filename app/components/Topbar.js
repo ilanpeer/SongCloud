@@ -16,13 +16,13 @@ export default function Topbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/" exact activeClassName="selected">Explore</NavLink>
+            <NavLink to="/explore" activeClassName="selected">Explore</NavLink>
           </li>
           <li>
             <NavLink to="/playlists" exact activeClassName="selected">Playlists</NavLink>
           </li>
           <li>
-            {/*<i className="fa fa-search" aria-hidden="true"/>*/}
+            <i className="fa fa-search" aria-hidden="true"/>
             <input type="text" placeholder="search"/>
           </li>
           <li>

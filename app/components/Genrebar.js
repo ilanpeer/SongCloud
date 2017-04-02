@@ -3,8 +3,8 @@ import {NavLink} from 'react-router-dom';
 
 export default function Genrebar(props) {
 
-  const genre = props.genre;
-  // console.log(props.genre);
+  // TODO ASk ALEX: How can i tell the props?
+  // console.log(props);
 
   return (
     <div className="">

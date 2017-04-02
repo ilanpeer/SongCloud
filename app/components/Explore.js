@@ -1,5 +1,6 @@
 import React from 'react';
 import Songcard from './Songcard';
+import Pagination from './Pagination';
 import Genrebar from './Genrebar';
 import {
   NavLink
@@ -14,10 +15,10 @@ export default class Explore extends React.Component {
     };
   }
 
-  loadSongs(){
+  loadSongs() {
     const xhr = new XMLHttpRequest();
     const genre = this.props.match.params.genre;
-    console.log(this.props.match.params);
+    console.log('log = this.props.match.params: ', this.props.match.params);
 
     xhr.open('GET', `https://create-bootcamp-songcloud-server.now.sh/tracks?genre=${genre}`);
     xhr.addEventListener('load', () => {
@@ -51,8 +52,8 @@ export default class Explore extends React.Component {
         return (
           <div className="first-div-return-from-explore">
             <div className="genrediv">
-              {<Genrebar
-                />}
+              <Genrebar
+              />
             </div>
             <div className="explorediv">
               <h1 className="exploretitle">Genre: get from current/active this.state.songs.genre</h1>
@@ -68,6 +69,8 @@ export default class Explore extends React.Component {
                   )}
               </ul>
             </div>
+            <Pagination
+              />
           </div>
         );
     }

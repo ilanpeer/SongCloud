@@ -10,8 +10,8 @@ export default function Songcard(props) {
   }
 
   function trimTitle(title) {
-    if (title.length >= 35) {
-      return title.slice(0, 30) + '...';
+    if (title.length >= 32) {
+      return title.slice(0, 32) + '...';
     }
     else {
       return title;
