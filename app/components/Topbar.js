@@ -12,11 +12,11 @@ export default function Topbar() {
           <li>
             <NavLink to="/" exact>
               <i className="fa fa-mixcloud nav-logo" aria-hidden="true"/>
-              <span>SongCloud</span>
+              <span> SongCloud</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/explore" exact activeClassName="selected">Explore</NavLink>
+            <NavLink to="/" exact activeClassName="selected">Explore</NavLink>
           </li>
           <li>
             <NavLink to="/playlists" exact activeClassName="selected">Playlists</NavLink>

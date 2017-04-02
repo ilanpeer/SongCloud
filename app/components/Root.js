@@ -21,9 +21,9 @@ export default function Root() {
       <div className="maindiv">
         <Topbar/>
         <Switch>
-          <Route exact path="/" component={() =>
-            <Redirect to="/explore"/>}/>
-          <Route exact path="/explore" component={ Explore }/>
+          <Route exact path="/" component={ () =>
+            <Redirect to="/explore/trance"/> }/>
+          <Route path="/explore/:genre" component={ Explore }/>
           <Route exact path="/playlists" component={ Playlists }/>
         </Switch>
         <Player/>

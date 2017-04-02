@@ -95,6 +95,9 @@ body {
   background: #1E88E5;
   border: 1px solid #D8D8D8;
   border-radius: 32px;
+  padding-left: 32px;
+  color: #FFFFFF;
+
 }
 
 .navlist input::placeholder {
@@ -102,8 +105,9 @@ body {
   color: #FFFFFF;
   font-family: 'Roboto-Light', sans-serif;;
   font-size: 14px;
-  padding-left: 32px;
+  //padding-left: 32px;
 }
+
 
 .navlist button {
   font-family: 'Roboto-Light', sans-serif;;
@@ -145,7 +149,6 @@ p.playersongtitle {
   font-size: 11px;
   color: #4A4A4A;
 }
-
 
 // singin.js
 
@@ -214,9 +217,16 @@ p.playersongtitle {
   display: flex;
   flex-direction: row;
   padding-left: 10px;
+  align-items: center
 }
 
-.genrebar li {
+.genrebar li:first-child(1) {
+  font-family: 'Roboto-Regular', sans-serif;
+  font-size: 15px;
+  color: #000000;
+}
+
+.genrebar li:not(:first-child) {
   font-family: 'Roboto-Light', sans-serif;
   font-size: 15px;
   color: #000000;

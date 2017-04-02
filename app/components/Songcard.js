@@ -10,14 +10,18 @@ export default function Songcard(props) {
   }
 
   function trimTitle(title) {
-    if (title.length >= 25) {
-      return title.slice(0, 26);
+    if (title.length >= 35) {
+      return title.slice(0, 30) + '...';
+    }
+    else {
+      return title;
     }
   }
 
+
   return (
     <div className="songcard">
-      <img className="cardimage" src={props.image}/>
+      <div><img className="cardimage" src={props.image.replace('large', 't300x300')}/></div>
       <p className="cardtitle">{trimTitle(props.title)}</p>
       <p className="cardduration"><i className="fa fa-clock-o" aria-hidden="true"/> {msToTime(props.duration)}</p>
       <i className="fa fa-heart-o cardheart" aria-hidden="true"/>
