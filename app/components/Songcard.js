@@ -26,8 +26,8 @@ export default function Songcard(props) {
   return (
     <div className="songcard">
       <div className="cardimage"
-           style={ {backgroundImage: `url(${imgUrl})`} }
-           onclick={ this.props.updateCurrentTrack(song) }/>
+           style={ {backgroundImage: `url(${imgUrl})`} }/>
+        {/*onclick={ this.props.updateCurrentTrack(WHO IS PLAYING??) }*/}
       <p className="cardtitle">{trimTitle(props.title)}</p>
       <p className="cardduration"><i className="fa fa-clock-o" aria-hidden="true"/> {msToTime(props.duration)}</p>
       <i className="fa fa-heart-o cardheart" aria-hidden="true"/>

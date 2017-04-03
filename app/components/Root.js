@@ -43,21 +43,32 @@ export default class Root extends React.Component {
               <Switch>
                 <Route exact path="/" component={() =>
                   <Redirect to="/explore"/> }/>
-
-                <Route exact path="/explore" render={ (props) => {
-                  return <Explore updateCurrentTrack={ this.updateCurrentTrack.bind(this)
-                  }
-
-                  /> }
-
-                <Route path="/explore/:genre" component={ Explore }/>
-                <Route exact path="/playlists" component={ Playlists }/>
+                <Route exact path="/explore" render={ (currentTrack) => {
+                  return <Explore updateCurrentTrack={ this.updateCurrentTrack.bind(this)}/>
+                }}/>
               </Switch>
             </div>
-          }
-          }/>
+          }}/>
+          <Switch>
+            <Route path="/explore/:genre" component={ Explore }/>
+            <Route exact path="/playlists" component={ Playlists }/>
+          </Switch>
         </Switch>
       </BrowserRouter>
     )
-  };
+  }
+
 }
+
+{/*<BrowserRouter>*/}
+  {/*<div className="maindiv">*/}
+    {/*<Topbar/>*/}
+    {/*<Switch>*/}
+      {/*<Route exact path="/" component={ () =>*/}
+        {/*<Redirect to="/explore"/> }/>*/}
+      {/*<Route path="/explore/:genre" component={ Explore }/>*/}
+      {/*<Route exact path="/playlists" component={ Playlists }/>*/}
+    {/*</Switch>*/}
+    {/*<Player/>*/}
+  {/*</div>*/}
+{/*</BrowserRouter>*/}
