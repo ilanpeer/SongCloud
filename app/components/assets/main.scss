@@ -55,6 +55,11 @@ body {
   padding: 0 0 7.5px 10px;
 }
 
+.navlist {
+  display: flex;
+  align-items: center;
+}
+
 .nav-logo {
   font-size: 30px;
   color: #FFFFFF;
@@ -216,6 +221,7 @@ p.playersongtitle {
   height: 40px;
   width: 100%;
   background: #DDE4E6;
+  display: flex;
 }
 
 .genrebar {
@@ -235,11 +241,12 @@ p.playersongtitle {
   font-family: 'Roboto-Light', sans-serif;
   font-size: 15px;
   color: #000000;
+  padding-right: 40px;
 }
 
 // Explore.js card list
 
-.first-div-return-from-explore {
+.first-div-return-from-explore-js {
   display: flex;
   min-height: 600px;
   flex-direction: column;
@@ -287,9 +294,9 @@ p.playersongtitle {
 }
 
 .cardimage {
+  background-position: center center;
   width: 200px;
   height: 85px;
-  background: #eeeeee;
   border: 1px solid #D8D8D8;
   display: block;
   margin: 10px 10px 7px 10px;
@@ -298,12 +305,12 @@ p.playersongtitle {
 .cardtitle {
   font-family: 'Roboto-Regular', sans-serif;
   width: 200px;
-  font-size: 11px;
+  font-size: 0.69rem;
   color: #4A4A4A;
 }
 
 .cardduration {
-  font-size: 10px;
+  font-size: 0.63rem;
   color: #4A4A4A;
   line-height: 13px;
 }
@@ -337,10 +344,35 @@ p.playersongtitle {
   height: 30px;
 }
 
-//TEMP
+// loading state
+
+.loading {
+  font-size: 60px;
+  color: #1E88E5;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+// Playlists.js
 
 .playlists {
   font-size: 120px;
   color: #2196F3;
 }
 
+.first-div-return-from-playlists {
+  display: flex;
+
+}
+
+.playlists-side-nav {
+  width: 200px;
+  background: #FFFFFF;
+  box-shadow: inset -1px 0 0 0 #D8D8D8;
+}
+
+.add-new-playlist-btn {
+  background: #2196F3;
+  border-radius: 2px;
+}

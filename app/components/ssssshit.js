@@ -41,7 +41,7 @@ export default class Explore extends React.Component {
         return <div className="404">AMOD 404 CLASSY -----> Error!</div>;
       case 'loaded':
         return (
-          <div className="first-div-return-from-explore">
+          <div className="first-div-return-from-explore-js">
             <div className="genrediv">
               <ul className="genrebar">
                 <li><h4>Genres: </h4></li>

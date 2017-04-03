@@ -3,18 +3,15 @@ import {NavLink} from 'react-router-dom';
 
 export default function Genrebar(props) {
 
-  // TODO ASk ALEX: How can i tell the props?
-  // console.log(props);
+  console.log(props.genre);
 
   return (
-    <div className="">
-      <ul className="genrebar">
-        <li><p>Genres: </p></li>
-        <li><NavLink exact activeClassName="selcetedgenre" to="/explore/trance">Trance</NavLink> </li>
-        <li><NavLink exact activeClassName="selcetedgenre" to="/explore/house">House</NavLink></li>
-        <li><NavLink exact activeClassName="selcetedgenre" to="/explore/dubstep">Dubstep</NavLink></li>
-      </ul>
-    </div>
+    <ul className="genrebar">
+      <li><p>Genres: </p></li>
+      <li><NavLink exact activeClassName="selcetedgenre" to="/explore/trance">${props.genre}</NavLink></li>
+      <li><NavLink exact activeClassName="selcetedgenre" to="/explore/house">${props.genre}</NavLink></li>
+      <li><NavLink exact activeClassName="selcetedgenre" to="/explore/dubstep">${props.genre}</NavLink></li>
+    </ul>
   );
 }
 

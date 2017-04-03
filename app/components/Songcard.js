@@ -18,10 +18,16 @@ export default function Songcard(props) {
     }
   }
 
+  // console.log("props.image = song.artwork_url", props.image);
+
+  const imgUrl = props.image ? props.image.replace('large', 't300x300') : props.image;
+
 
   return (
     <div className="songcard">
-      <div><img className="cardimage" src={props.image.replace('large', 't300x300')}/></div>
+      <div className="cardimage"
+           style={ {backgroundImage: `url(${imgUrl})`} }
+           onclick={ this.props.updateCurrentTrack(song) }/>
       <p className="cardtitle">{trimTitle(props.title)}</p>
       <p className="cardduration"><i className="fa fa-clock-o" aria-hidden="true"/> {msToTime(props.duration)}</p>
       <i className="fa fa-heart-o cardheart" aria-hidden="true"/>

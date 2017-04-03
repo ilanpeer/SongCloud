@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  NavLink
+} from 'react-router-dom';
 
 export default function Signin() {
 
@@ -18,7 +21,7 @@ export default function Signin() {
         <button name="button" type="submit">Continue</button>
 
         <div>
-          <span>Don't have an account yet? <a href="#">Create Account</a></span>
+          <span>Don't have an account yet? <NavLink to="/signup"> Create Account</NavLink></span>
         </div>
 
       </form>

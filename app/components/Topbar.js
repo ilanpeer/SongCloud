@@ -9,6 +9,7 @@ export default function Topbar() {
     <div className="navdiv">
       <nav className="topnav">
         <ul className="navlist">
+          <div className="left">
           <li>
             <NavLink to="/" exact>
               <i className="fa fa-mixcloud nav-logo" aria-hidden="true"/>
@@ -21,13 +22,16 @@ export default function Topbar() {
           <li>
             <NavLink to="/playlists" exact activeClassName="selected">Playlists</NavLink>
           </li>
+          </div>
+          <div className="right">
           <li>
             <i className="fa fa-search" aria-hidden="true"/>
             <input type="text" placeholder="search"/>
           </li>
           <li>
-            <button name="button">Logout</button>
+            <NavLink to="/signin" exact>Logout</NavLink>
           </li>
+          </div>
         </ul>
       </nav>
     </div>

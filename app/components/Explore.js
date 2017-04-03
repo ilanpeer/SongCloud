@@ -1,6 +1,6 @@
 import React from 'react';
 import Songcard from './Songcard';
-import Pagination from './Pagination';
+// import Pagination from './Pagination';
 import Genrebar from './Genrebar';
 import {
   NavLink
@@ -11,16 +11,21 @@ export default class Explore extends React.Component {
     super();
     this.state = {
       songs: [],
-      songsLoading: 'loading...'
+      songsLoading: 'loading...',
+      offset: 0,
+      limit: 15
     };
   }
 
   loadSongs() {
     const xhr = new XMLHttpRequest();
     const genre = this.props.match.params.genre;
-    console.log('log = this.props.match.params: ', this.props.match.params);
+    const limit = this.state.limit;
+    const offset = this.state.offset;
 
-    xhr.open('GET', `https://create-bootcamp-songcloud-server.now.sh/tracks?genre=${genre}`);
+    // console.log('log = this.props.match.params: ', this.props.match.params);
+
+    xhr.open('GET', `https://api.soundcloud.com/tracks?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z&limit=${limit}&offset=${offset}&tags=${genre}`);
     xhr.addEventListener('load', () => {
       this.setState({songs: JSON.parse(xhr.responseText), songsLoading: 'loaded'});
     });
@@ -35,28 +40,46 @@ export default class Explore extends React.Component {
     this.loadSongs();
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.genre === this.props.match.params.genre)
-      return;
-    this.loadSongs();
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.genre !== this.props.match.params.genre) {
+      this.loadSongs();
+    }
+    if (prevState.offset !== this.state.offset) {
+      this.loadSongs();
+    }
+
   }
+
+  nextPage() {
+    this.setState({
+      offset: this.state.offset + this.state.limit
+    })
+  }
+
+  prevPage() {
+    this.setState({
+      offset: this.state.offset - this.state.limit
+    })
+  }
+
 
   render() {
 
     switch (this.state.songsLoading) {
       case 'loading...':
-        return <div className="loading">KAN TAVO ANIMATZIA SHEL -----> Loading...</div>;
+        return <div className="loading"><i className="fa fa-spinner fa-pulse fa-3x fa-fw"/> Loading...</div>;
       case 'error':
         return <div className="404">AMOD 404 CLASSY -----> Error!</div>;
       case 'loaded':
         return (
-          <div className="first-div-return-from-explore">
+          <div className="first-div-return-from-explore-js">
             <div className="genrediv">
               <Genrebar
+                genre={ this.props.match.params.genre }
               />
             </div>
             <div className="explorediv">
-              <h1 className="exploretitle">Genre: get from current/active this.state.songs.genre</h1>
+              <h1 className="exploretitle">Genre: {this.props.match.params.genre}</h1>
               <ul className="explorelist">
                 {
                   this.state.songs.map((song, i) => <li className="cardunit" key={ song.id }>
@@ -69,8 +92,14 @@ export default class Explore extends React.Component {
                   )}
               </ul>
             </div>
-            <Pagination
-              />
+            <div className="paginationdiv">
+              <button onClick={this.prevPage.bind(this)}
+                      className="prevpage"
+                      disabled={this.state.offset === 0}>Prev
+              </button>
+              <p className="">page {this.state.offset / this.state.limit + 1} </p>
+              <button onClick={this.nextPage.bind(this)} className="nextpage">Next</button>
+            </div>
           </div>
         );
     }
