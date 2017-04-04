@@ -4,8 +4,8 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import './components/assets/main.scss';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Root from './components/Root';
+import Routes from './components/Routes';
 
 
-ReactDOM.render(<Root/>, document.querySelector('#root'));
+ReactDOM.render(<Routes/>, document.querySelector('#root'));
 

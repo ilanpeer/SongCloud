@@ -19,8 +19,11 @@ export default class Root extends React.Component {
   constructor() {
     super();
 
+    this.updateCurrentTrack = this.updateCurrentTrack.bind(this);
+
     this.state = {
-      currentTrack: {}
+      currentTrack: {},
+      playlists: []
     }
   }
 
@@ -33,31 +36,32 @@ export default class Root extends React.Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <div className="div-return-from-root-js">
+        <Topbar/>
+
         <Switch>
-          <Route exact path="/signin" component={ Signin }/>
-
-          <Route exact path="/signup" component={ Signup }/>
-
-          <Route path="/" component={ () => {
-            return <div className="div-return-from-root-js">
-              <Topbar/>
-              <Switch>
-                <Route exact path="/" component={() =>
-                  <Redirect to="/explore"/> }/>
-
-                <Route exact path="/explore" render={ (currentTrack) => {
-                  return <Explore updateCurrentTrack={ this.updateCurrentTrack.bind(this)}/>
-                }}/>
-
-                <Route path="/explore/:genre" component={ Explore }/>
-
-                <Route exact path="/playlists" component={ Playlists }/>
-              </Switch>
-            </div>
+          <Route exact path="/" component={() =>
+            <Redirect to="/explore"/>
+          }/>
+          <Route exact path="/explore/:genre" render={ (props) => {
+            return <Explore updateCurrentTrack={ this.updateCurrentTrack}
+                            {...props}/>
           }}/>
+          {/*<Route path="/explore/trance" component={ Explore }*/}
+          {/*/>*/}
+          <Route exact path="/explore" component={() =>
+            <Redirect to="/explore/trance"/>
+          }/>
+
+          <Route exact path="/playlists" render={ () => {
+            return <Playlists data={ this.state.currentTrack }
+            />
+          }
+          }/>
         </Switch>
-      </BrowserRouter>
+
+        <Player track={this.state.currentTrack}/>
+      </div>
     )
   }
 

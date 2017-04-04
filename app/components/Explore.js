@@ -2,11 +2,10 @@ import React from 'react';
 import Songcard from './Songcard';
 // import Pagination from './Pagination';
 import Genrebar from './Genrebar';
-import {
-  NavLink
-} from 'react-router-dom';
+
 
 export default class Explore extends React.Component {
+
   constructor() {
     super();
     this.state = {
@@ -15,15 +14,15 @@ export default class Explore extends React.Component {
       offset: 0,
       limit: 15,
     };
+
   }
 
-  loadSongs(currentTrack) {
+
+  loadSongs(props) {
     const xhr = new XMLHttpRequest();
     const genre = this.props.match.params.genre;
     const limit = this.state.limit;
     const offset = this.state.offset;
-
-    console.log(this.props.updateCurrentTrack);
 
     xhr.open('GET', `https://api.soundcloud.com/tracks?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z&limit=${limit}&offset=${offset}&tags=${genre}`);
     xhr.addEventListener('load', () => {
@@ -87,7 +86,8 @@ export default class Explore extends React.Component {
                         image={ song.artwork_url }
                         title={ song.title }
                         duration={ song.duration }
-                        // currentSong={ song } *** TODO *** having the play nested in songcard, what attribute to pass in order to stream?
+                        currentTrack={ song }
+                        updateCurrentTrack={ this.props.updateCurrentTrack }
                       />
                     </li>
                   )}

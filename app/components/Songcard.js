@@ -2,6 +2,10 @@ import React from 'react';
 
 export default function Songcard(props) {
 
+  // const image = { song.artwork_url }
+  // const title = { song.title }
+  // const duration = { song.duration }
+
   function msToTime(duration) {
     const seconds = parseInt((duration / 1000) % 60);
     const minutes = parseInt((duration / (1000 * 60)) % 60);
@@ -18,7 +22,7 @@ export default function Songcard(props) {
     }
   }
 
-  // console.log("props.image = song.artwork_url", props.image);
+  // console.log("Songcard.js props: ", props.currentTrack);
 
   const imgUrl = props.image ? props.image.replace('large', 't300x300') : props.image;
 
@@ -26,8 +30,8 @@ export default function Songcard(props) {
   return (
     <div className="songcard">
       <div className="cardimage"
-           style={ {backgroundImage: `url(${imgUrl})`} }/>
-        {/*onclick={ this.props.updateCurrentTrack(WHO IS PLAYING??) }*/}
+           style={ {backgroundImage: `url(${imgUrl})`} }
+           onClick={ () => props.updateCurrentTrack(props.currentTrack) }/>
       <p className="cardtitle">{trimTitle(props.title)}</p>
       <p className="cardduration"><i className="fa fa-clock-o" aria-hidden="true"/> {msToTime(props.duration)}</p>
       <i className="fa fa-heart-o cardheart" aria-hidden="true"/>
