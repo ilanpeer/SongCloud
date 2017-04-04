@@ -7,7 +7,7 @@ export default function Playlists() {
     <div className="first-div-return-from-playlists">
       <div className="playlists-side-nav">
         <div className="add-new-playlist">
-        <button className="add-new-playlist-btn">Add new playlists</button>
+          <button className="add-new-playlist-btn">Add new playlists</button>
         </div>
         <ul className="playlists-name-list">
           <li>Playlist 1</li>

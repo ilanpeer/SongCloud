@@ -22,8 +22,6 @@ export default function Songcard(props) {
     }
   }
 
-  // console.log("Songcard.js props: ", props.currentTrack);
-
   const imgUrl = props.image ? props.image.replace('large', 't300x300') : props.image;
 
 
@@ -35,6 +33,14 @@ export default function Songcard(props) {
       <p className="cardtitle">{trimTitle(props.title)}</p>
       <p className="cardduration"><i className="fa fa-clock-o" aria-hidden="true"/> {msToTime(props.duration)}</p>
       <i className="fa fa-heart-o cardheart" aria-hidden="true"/>
+      <div> Add to playlist
+        {/*<ul>*/}
+          {/*<li>Playlist 1</li>*/}
+          {/*<li>Playlist 2</li>*/}
+          {/*<li>Playlist 3</li>*/}
+          {/*<li>Playlist 4</li>*/}
+        {/*</ul>*/}
+      </div>
     </div>
   );
 }

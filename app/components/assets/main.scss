@@ -56,8 +56,8 @@ body {
 }
 
 .navlist {
-  display: flex;
-  align-items: center;
+  //display: flex;
+  //align-items: center;
 }
 
 .nav-logo {
@@ -158,6 +158,20 @@ img[alt="Song thumbnail"] {
 p.playersongtitle {
   font-size: 11px;
   color: #4A4A4A;
+}
+
+.player-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerElm {
+  //margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  //width: 100%;
 }
 
 // singin.js
@@ -342,6 +356,19 @@ p.playersongtitle {
   border-radius: 2px;
   width: 87px;
   height: 30px;
+  border: none;
+  font-family: 'Roboto-Medium', sans-serif;
+  font-size: 13px;
+  color: #FFFFFF;
+}
+
+.paginationdiv {
+  display: flex;
+  width: 250px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 // loading state
@@ -350,8 +377,8 @@ p.playersongtitle {
   font-size: 60px;
   color: #1E88E5;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
+  //display: flex;
+  //align-items: center;
 }
 
 // Playlists.js
@@ -411,6 +438,10 @@ p.playersongtitle {
   width: 180px;
   height: 30px;
   margin: 0 auto;
+  border: none;
+  font-family: 'Roboto-Medium', sans-serif;
+  font-size: 13px;
+  color: #FFFFFF;
 }
 
 .playlists-name-list {

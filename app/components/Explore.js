@@ -66,7 +66,7 @@ export default class Explore extends React.Component {
 
     switch (this.state.songsLoading) {
       case 'loading...':
-        return <div className="loading"><i className="fa fa-spinner fa-pulse fa-3x fa-fw"/> Loading...</div>;
+        return <div className="loading"><i className="fa fa-spinner fa-pulse fa-3x fa-fw"/></div>;
       case 'error':
         return <div className="404">AMOD 404 CLASSY -----> Error!</div>;
       case 'loaded':

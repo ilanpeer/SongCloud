@@ -3,15 +3,24 @@ import React from 'react';
 
 export default function Player(props) {
   const songUrl = `${props.track.stream_url}?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z`;
+  const title = String(props.track.title);
+  // console.log('props.track.title --', title);
 
-  // console.log('Player.js props', props.track);
+  function trimTitle(title) {
+    if (title.length >= 32) {
+      return title.slice(0, 32) + '...';
+    }
+    else {
+      return title;
+    }
+  }
 
   return (
     <div className="playerfooter">
-      <div>
-        <img alt="Song thumbnail" src= { props.track.artwork_url } />
+      <div className="player-left">
+        <img alt="Song thumbnail" src={ props.track.artwork_url }/>
+        <p className="playersongtitle"> { trimTitle(title) } </p>
       </div>
-        <p className="playersongtitle"> {props.track.title} </p>
       <audio className="playerElm"
              src={ songUrl }
              controls
