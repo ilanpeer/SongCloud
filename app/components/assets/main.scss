@@ -366,13 +366,53 @@ p.playersongtitle {
 
 }
 
+.playlists-body {
+  //width: 80%;
+  background: #FFFFFF;
+
+}
+
 .playlists-side-nav {
   width: 200px;
   background: #FFFFFF;
   box-shadow: inset -1px 0 0 0 #D8D8D8;
+  margin-left: 20px;
+  //border-right: 1px solid #D8D8D8;
+
+}
+
+.add-new-playlist {
+  width: 180px;
+  height: 75px;
+  border-bottom: 1px solid #D8D8D8;
+
+}
+
+.playlist-header {
+  width: 784px;
+  height: 64px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 2px 0 rgba(0,0,0,0.12);
+  font-family: 'Roboto-Light', sans-serif;
+  font-size: 22px;
+  color: #000000;
+
+}
+
+.delete-list-btn {
+  font-family: 'Roboto-Medium', sans-serif;
+  font-size: 13px;
+  color: #F44336;
 }
 
 .add-new-playlist-btn {
   background: #2196F3;
   border-radius: 2px;
+  width: 180px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.playlists-name-list {
+  line-height: 2rem;
 }
