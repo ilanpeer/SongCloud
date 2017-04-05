@@ -292,19 +292,15 @@ p.playersongtitle {
 }
 
 .songcard {
-  position: relative;
   width: 220px;
   height: 140px;
   background: #FFFFFF;
   border: 1px solid #D8D8D8;
+  position: relative;
 }
 
-.songcard p {
+.cardtitle, .cardduration {
   padding: 0 0 0 10px;
-  //white-space: nowrap;
-  //text-overflow: ellipsis;
-  //overflow: hidden;
-  //width: 210px;
 }
 
 .cardimage {
@@ -333,18 +329,68 @@ p.playersongtitle {
   font-size: 14px;
   color: #D8D8D8;
   transition: all .2s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
 }
 
 .cardheart:hover {
-  color: #2196F3;
+  color: #9B9B9B;
   //transform: scale(1.00);
 }
 
-.songcard > .cardheart {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+.heart-icon {
+  position: relative;
+}
 
+// Dropdown within Songcard.js
+
+.hidden {
+  display: none;
+}
+
+.dropdown-title {
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.dropdown-body > ul li {
+  line-height: 12px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 130px;
+  right: 10px;
+  z-index: 10;
+  width: 130px;
+  height: 110px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  padding: 10px;
+}
+
+.dropdown-title > p {
+  font-family: 'Roboto-Bold', sans-serif;
+  font-size: 11px;
+  color: #4A4A4A;
+}
+
+.dropdown-create-playlist-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  font-family: 'Roboto-Regular', sans-serif;
+  font-size: 9px;
+  color: #2196F3;
+}
+
+.dropdown-body {
+  font-family: 'Roboto-Regular', sans-serif;
+  font-size: 9px;
+  color: #4A4A4A;
+  line-height: 12px;
 }
 
 // Pagination.js
@@ -383,17 +429,12 @@ p.playersongtitle {
 
 // Playlists.js
 
-.playlists {
-  font-size: 120px;
-  color: #2196F3;
-}
-
 .first-div-return-from-playlists {
   display: flex;
 
 }
 
-.playlists-body {
+.playlists-right {
   //width: 80%;
   background: #FFFFFF;
 
@@ -416,10 +457,10 @@ p.playersongtitle {
 }
 
 .playlist-header {
-  width: 784px;
+  width: 100%;
   height: 64px;
   background: #FFFFFF;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 2px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 2px 0 rgba(0, 0, 0, 0.12);
   font-family: 'Roboto-Light', sans-serif;
   font-size: 22px;
   color: #000000;

@@ -1,6 +1,5 @@
 import React from 'react';
 import Songcard from './Songcard';
-// import Pagination from './Pagination';
 import Genrebar from './Genrebar';
 
 
@@ -63,7 +62,6 @@ export default class Explore extends React.Component {
 
 
   render() {
-
     switch (this.state.songsLoading) {
       case 'loading...':
         return <div className="loading"><i className="fa fa-spinner fa-pulse fa-3x fa-fw"/></div>;
@@ -71,8 +69,8 @@ export default class Explore extends React.Component {
         return <div className="404">AMOD 404 CLASSY -----> Error!</div>;
       case 'loaded':
         return (
-          <div className="first-div-return-from-explore-js">
-            <div className="genrediv">
+        <div className="first-div-return-from-explore-js">
+          <div className="genrediv">
               <Genrebar
                 genre={ this.props.match.params.genre }
               />
@@ -83,11 +81,9 @@ export default class Explore extends React.Component {
                 {
                   this.state.songs.map((song, i) => <li className="cardunit" key={ song.id }>
                       <Songcard
-                        image={ song.artwork_url }
-                        title={ song.title }
-                        duration={ song.duration }
-                        currentTrack={ song }
+                        song={ song }
                         updateCurrentTrack={ this.props.updateCurrentTrack }
+                        // currentTrack={ this.props.track }
                       />
                     </li>
                   )}
