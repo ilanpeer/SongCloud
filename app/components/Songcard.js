@@ -8,6 +8,7 @@ export default class Songcard extends React.Component {
     super();
     this.state = {
       isDropdownOpen: false,
+      mode: "explore",
     };
 
   }
@@ -35,6 +36,8 @@ export default class Songcard extends React.Component {
       }
     }
 
+
+
     const imgUrl = this.props.song.artwork_url ? this.props.song.artwork_url.replace('large', 't300x300') : this.props.song.artwork_url;
 
     const dropToggle = this.state.isDropdownOpen ? 'dropdown' : 'dropdown hidden';
@@ -46,7 +49,7 @@ export default class Songcard extends React.Component {
              onClick={ () => this.props.updateCurrentTrack(this.props.song) }/>
         <p className="cardtitle">{trimTitle(this.props.song.title)}</p>
         <p className="cardduration"><i className="fa fa-clock-o"
-                                       aria-hidden="true"/> {msToTime(this.props.song.duration)}
+                                       aria-hidden="true"/>{msToTime(this.props.song.duration)}
         </p>
         <div className="heart-icon">
           <i className="fa fa-heart-o cardheart" aria-hidden="true"
@@ -56,7 +59,7 @@ export default class Songcard extends React.Component {
         <div className={ dropToggle }>
           <div className="dropdown-title">
             <p>Add to playlist</p>
-            <button className="dropdown-create-playlist-btn">Create playlist+</button>
+            <button onClick={ this.props.createPlaylist } className="dropdown-create-playlist-btn">Create playlist+</button>
           </div>
           <div className="dropdown-body">
             <ul>

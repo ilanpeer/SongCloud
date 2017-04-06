@@ -71,9 +71,7 @@ export default class Explore extends React.Component {
         return (
         <div className="first-div-return-from-explore-js">
           <div className="genrediv">
-              <Genrebar
-                genre={ this.props.match.params.genre }
-              />
+              <Genrebar/>
             </div>
             <div className="explorediv">
               <h1 className="exploretitle">Genre: {this.props.match.params.genre}</h1>
@@ -83,7 +81,7 @@ export default class Explore extends React.Component {
                       <Songcard
                         song={ song }
                         updateCurrentTrack={ this.props.updateCurrentTrack }
-                        // currentTrack={ this.props.track }
+                        createPlaylist={ this.props.createPlaylist }
                       />
                     </li>
                   )}

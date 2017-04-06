@@ -19,8 +19,8 @@ export default class Root extends React.Component {
   constructor() {
     super();
 
-    // this.state.currentTrack = this.state.currentTrack.bind(this);
     this.updateCurrentTrack = this.updateCurrentTrack.bind(this);
+    this.createPlaylist = this.createPlaylist.bind(this);
 
     this.state = {
       currentTrack: {},
@@ -61,6 +61,10 @@ export default class Root extends React.Component {
     })
   }
 
+  createPlaylist() {
+    // this.props.history.push('/playlists');
+    console.log('createPlaylist(e)');
+  }
 
   render() {
     return (
@@ -74,15 +78,15 @@ export default class Root extends React.Component {
           <Route exact path="/explore/:genre" render={ (props) => {
             return <Explore updateCurrentTrack={ this.updateCurrentTrack }
                             currentTrack={ this.state.currentTrack }
-                            // data={ this.state.playlists }
+                            createPlaylist={ this.state.createPlaylist }
                             {...props}/>
           }}/>
           <Route exact path="/explore" component={() =>
             <Redirect to="/explore/trance"/>
           }/>
 
-          <Route exact path="/playlists" render={ () => {
-            return <Playlists data={ this.state.playlists }
+          <Route exact path="/playlists" render={ (props) => {
+            return <Playlists playlists={ this.state.playlists }
             />
           }
           }/>

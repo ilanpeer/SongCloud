@@ -6,6 +6,10 @@ export default function Player(props) {
   const title = String(props.track.title);
   // console.log('props.track.title --', title);
 
+  if (!props.track) {
+    return  <div className="playerfooter shifted"/>
+  }
+
   function trimTitle(title) {
     if (title.length >= 32) {
       return title.slice(0, 32) + '...';

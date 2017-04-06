@@ -339,6 +339,14 @@ p.playersongtitle {
   //transform: scale(1.00);
 }
 
+.cardheart:active {
+  color: #9B9B9B;
+  //transform: scale(1.00);
+}
+
+
+
+
 .heart-icon {
   position: relative;
 }
@@ -440,7 +448,7 @@ p.playersongtitle {
 
 }
 
-.playlists-side-nav {
+.playlists-left-side {
   width: 200px;
   background: #FFFFFF;
   box-shadow: inset -1px 0 0 0 #D8D8D8;
@@ -487,4 +495,10 @@ p.playersongtitle {
 
 .playlists-name-list {
   line-height: 2rem;
+}
+
+.playlist-songs {
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
 }
