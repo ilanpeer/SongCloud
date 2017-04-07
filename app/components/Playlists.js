@@ -10,20 +10,21 @@ export default function Playlists(props) {
     <div className="first-div-return-from-playlists">
       <div className="playlists-left-side">
         <div className="add-new-playlist">
-          <button className="add-new-playlist-btn">Add new playlists</button>
+          <button type="submit" onClick={props.playlists.createPlaylist} className="add-new-playlist-btn">Add new playlists</button>
         </div>
         <ul className="playlists-name-list">
-          {props.playlists.map((playlist) => <li className="list-name" key={ playlist.id }>
-            {playlist.title}</li>)
+          {props.playlists.map((playlist) => <li className="list-name" key={playlist.id}>{playlist.title}</li>)
           }
         </ul>
       </div>
       <div className="playlists-right-side">
         {
-          props.playlists.map((playlist, i) => <div className="playlists-main" key={ playlist.id }>
+          props.playlists.map((playlist, i) => <div className="playlist-main" key={ playlist.id }>
               <Playlist1
+                updateCurrentTrack={ props.updateCurrentTrack }
                 title={ playlist.title }
                 songs={ playlist.songs }
+                {...props}
               />
             </div>
           )}

@@ -36,7 +36,7 @@ export default class Songcard extends React.Component {
       }
     }
 
-
+    // console.log(this.props.playlists);
 
     const imgUrl = this.props.song.artwork_url ? this.props.song.artwork_url.replace('large', 't300x300') : this.props.song.artwork_url;
 
@@ -49,7 +49,7 @@ export default class Songcard extends React.Component {
              onClick={ () => this.props.updateCurrentTrack(this.props.song) }/>
         <p className="cardtitle">{trimTitle(this.props.song.title)}</p>
         <p className="cardduration"><i className="fa fa-clock-o"
-                                       aria-hidden="true"/>{msToTime(this.props.song.duration)}
+                                       aria-hidden="true"/> {msToTime(this.props.song.duration)}
         </p>
         <div className="heart-icon">
           <i className="fa fa-heart-o cardheart" aria-hidden="true"
@@ -59,15 +59,16 @@ export default class Songcard extends React.Component {
         <div className={ dropToggle }>
           <div className="dropdown-title">
             <p>Add to playlist</p>
-            <button onClick={ this.props.createPlaylist } className="dropdown-create-playlist-btn">Create playlist+</button>
+            <button onClick={ this.props.createPlaylist } className="dropdown-create-playlist-btn">Create playlist+
+            </button>
           </div>
           <div className="dropdown-body">
-            <ul>
-              <li>Playlist 1</li>
-              <li>Playlist 2</li>
-              <li>Playlist 3</li>
-              <li>Playlist 4</li>
+            <ul className="dropdown-lists">
+              {this.props.playlists.map((playlist, i) => <li className="list-name" key={ playlist.id }>
+                {playlist.title}
+              </li>)}
             </ul>
+
           </div>
         </div>
       </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import findDOMNode from 'react-dom';
 import Songcard from './Songcard';
 import Genrebar from './Genrebar';
 
@@ -16,7 +18,6 @@ export default class Explore extends React.Component {
 
   }
 
-
   loadSongs(props) {
     const xhr = new XMLHttpRequest();
     const genre = this.props.match.params.genre;
@@ -31,16 +32,19 @@ export default class Explore extends React.Component {
       this.setState({songsLoading: 'error'});
     });
     xhr.send();
-
   }
 
   componentDidMount() {
     this.loadSongs();
+
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.genre !== this.props.match.params.genre) {
       this.loadSongs();
+      // this._div.scrollTo(0,0);
+      // window.scrollTo = 0;
+      // ReactDom.findDOMNode(this).scrollIntoView();
     }
     if (prevState.offset !== this.state.offset) {
       this.loadSongs();
@@ -69,7 +73,7 @@ export default class Explore extends React.Component {
         return <div className="404">AMOD 404 CLASSY -----> Error!</div>;
       case 'loaded':
         return (
-        <div className="first-div-return-from-explore-js">
+        <div className="first-div-return-from-explore-js" ref={(ref) => this._div = ref}>
           <div className="genrediv">
               <Genrebar/>
             </div>
@@ -82,6 +86,7 @@ export default class Explore extends React.Component {
                         song={ song }
                         updateCurrentTrack={ this.props.updateCurrentTrack }
                         createPlaylist={ this.props.createPlaylist }
+                        playlists={ this.props.playlists }
                       />
                     </li>
                   )}
@@ -90,10 +95,10 @@ export default class Explore extends React.Component {
             <div className="paginationdiv">
               <button onClick={this.prevPage.bind(this)}
                       className="prevpage"
-                      disabled={this.state.offset === 0}>Prev
-              </button>
+                      disabled={this.state.offset === 0}>Prev</button>
               <p className="">page {this.state.offset / this.state.limit + 1} </p>
-              <button onClick={this.nextPage.bind(this)} className="nextpage">Next</button>
+              <button onClick={this.nextPage.bind(this)}
+                      className="nextpage">Next</button>
             </div>
           </div>
         );

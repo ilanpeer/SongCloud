@@ -162,7 +162,6 @@ p.playersongtitle {
 
 .player-left {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -268,6 +267,7 @@ p.playersongtitle {
 
 .explorediv {
   flex: 2;
+
 }
 
 .exploretitle {
@@ -304,6 +304,7 @@ p.playersongtitle {
 }
 
 .cardimage {
+  background-size: cover;
   background-position: center center;
   width: 200px;
   height: 85px;
@@ -343,8 +344,6 @@ p.playersongtitle {
   color: #9B9B9B;
   //transform: scale(1.00);
 }
-
-
 
 
 .heart-icon {
@@ -454,7 +453,9 @@ p.playersongtitle {
   box-shadow: inset -1px 0 0 0 #D8D8D8;
   margin-left: 20px;
   //border-right: 1px solid #D8D8D8;
-
+  //position: absolute;
+  top: 0;
+  left: 200px;
 }
 
 .add-new-playlist {
@@ -502,3 +503,4 @@ p.playersongtitle {
   flex-flow: row wrap;
   justify-content: flex-start;
 }
+

@@ -27,13 +27,14 @@ export default class Root extends React.Component {
       playlists: [
         {
           id: 111,
-          title: 'my 1st playlist',
+          title: 'Dynamic playlist name',
           songs: [
             {
-              "id": 250711755,
+              "id": 25071174,
               "title": "The Chainsmokers - Don't Let Me Down (Illenium Remix)",
-              "duration": 219082,
-              "stream_url": "https://api.soundcloudcom/tracks/250711755/stream",
+              "duration": 1,
+
+              "stream_url": "https://api.soundcloud.com/tracks/250711755/stream?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z",
               "uri": "https://api.soundcloud.com/tracks/250711755",
               "artwork_url": "https://i1.sndcdn.com/artworks-000150027827-4exjil-large.jpg"
             }]
@@ -46,7 +47,7 @@ export default class Root extends React.Component {
               "id": 250711755,
               "title": "The Chainsmokers - Don't Let Me Down (Illenium Remix)",
               "duration": 219082,
-              "stream_url": "https://api.soundcloudcom/tracks/250711755/stream",
+              "stream_url": "https://api.soundcloud.com/tracks/250711755/stream?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z",
               "uri": "https://api.soundcloud.com/tracks/250711755",
               "artwork_url": "https://i1.sndcdn.com/artworks-000150027827-4exjil-large.jpg"
             }]
@@ -61,9 +62,11 @@ export default class Root extends React.Component {
     })
   }
 
-  createPlaylist() {
+  createPlaylist(event) {
     // this.props.history.push('/playlists');
-    console.log('createPlaylist(e)');
+    // console.log('createPlaylist(e)');
+    event.preventDefault();
+
   }
 
   render() {
@@ -79,6 +82,7 @@ export default class Root extends React.Component {
             return <Explore updateCurrentTrack={ this.updateCurrentTrack }
                             currentTrack={ this.state.currentTrack }
                             createPlaylist={ this.state.createPlaylist }
+                            playlists={ this.state.playlists }
                             {...props}/>
           }}/>
           <Route exact path="/explore" component={() =>
@@ -86,10 +90,12 @@ export default class Root extends React.Component {
           }/>
 
           <Route exact path="/playlists" render={ (props) => {
-            return <Playlists playlists={ this.state.playlists }
-            />
-          }
-          }/>
+            return <Playlists updateCurrentTrack={ this.updateCurrentTrack }
+                              playlists={ this.state.playlists }
+                              createPlaylist={ this.state.createPlaylist }
+                              currentTrack={ this.state.currentTrack }
+                              {...props}/>
+          }}/>
         </Switch>
 
         <Player track={ this.state.currentTrack }/>
