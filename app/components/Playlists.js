@@ -24,6 +24,7 @@ export default function Playlists(props) {
                 updateCurrentTrack={ props.updateCurrentTrack }
                 title={ playlist.title }
                 songs={ playlist.songs }
+                changeName={ props.changeName }
                 {...props}
               />
             </div>

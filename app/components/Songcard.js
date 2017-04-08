@@ -8,7 +8,7 @@ export default class Songcard extends React.Component {
     super();
     this.state = {
       isDropdownOpen: false,
-      mode: "explore",
+      mode: " ",
     };
 
   }
@@ -17,6 +17,10 @@ export default class Songcard extends React.Component {
     this.setState({
       isDropdownOpen: !this.state.isDropdownOpen
     })
+  }
+
+  componentDidMount() {
+
   }
 
   render() {
@@ -36,7 +40,14 @@ export default class Songcard extends React.Component {
       }
     }
 
-    // console.log(this.props.playlists);
+    // console.log(this.props.mode);
+
+    function songCardOrigin() {
+      if(this.state.mode === 'explore') {
+
+      }
+
+    }
 
     const imgUrl = this.props.song.artwork_url ? this.props.song.artwork_url.replace('large', 't300x300') : this.props.song.artwork_url;
 

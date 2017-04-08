@@ -14,6 +14,8 @@ export default class Explore extends React.Component {
       songsLoading: 'loading...',
       offset: 0,
       limit: 15,
+      mode: 'explore',
+      page: 0,
     };
 
   }
@@ -36,7 +38,10 @@ export default class Explore extends React.Component {
 
   componentDidMount() {
     this.loadSongs();
+  }
 
+  componentWillUpdate() {
+    // this.shouldScrollBottom = ReactDOM.findDOMNode.scrollTop + ReactDOM.findDOMNode.offsetHeight === ReactDOM.findDOMNode.scrollHeight;
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -45,12 +50,18 @@ export default class Explore extends React.Component {
       // this._div.scrollTo(0,0);
       // window.scrollTo = 0;
       // ReactDom.findDOMNode(this).scrollIntoView();
+
     }
     if (prevState.offset !== this.state.offset) {
+      // ReactDOM.findDOMNode.scrollTop = ReactDOM.findDOMNode.scrollHeight;
+      // const scrollAnim = {block: "end", behavior: "smooth"};
+      ReactDOM.findDOMNode(this._div).scrollIntoView();
       this.loadSongs();
     }
 
   }
+
+
 
   nextPage() {
     this.setState({
@@ -73,12 +84,13 @@ export default class Explore extends React.Component {
         return <div className="404">AMOD 404 CLASSY -----> Error!</div>;
       case 'loaded':
         return (
-        <div className="first-div-return-from-explore-js" ref={(ref) => this._div = ref}>
+        <div className="first-div-return-from-explore-js">
           <div className="genrediv">
               <Genrebar/>
             </div>
+          {/*{ console.log(this.state.mode) }*/}
             <div className="explorediv">
-              <h1 className="exploretitle">Genre: {this.props.match.params.genre}</h1>
+              <h1 className="exploretitle" ref={(ref) => this._div = ref}>Genre: {this.props.match.params.genre}</h1>
               <ul className="explorelist">
                 {
                   this.state.songs.map((song, i) => <li className="cardunit" key={ song.id }>
@@ -87,6 +99,7 @@ export default class Explore extends React.Component {
                         updateCurrentTrack={ this.props.updateCurrentTrack }
                         createPlaylist={ this.props.createPlaylist }
                         playlists={ this.props.playlists }
+                        mode={ this.state.mode }
                       />
                     </li>
                   )}

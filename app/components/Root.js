@@ -20,6 +20,7 @@ export default class Root extends React.Component {
     super();
 
     this.updateCurrentTrack = this.updateCurrentTrack.bind(this);
+    this.changeName = this.changeName.bind(this);
     this.createPlaylist = this.createPlaylist.bind(this);
 
     this.state = {
@@ -34,7 +35,7 @@ export default class Root extends React.Component {
               "title": "The Chainsmokers - Don't Let Me Down (Illenium Remix)",
               "duration": 1,
 
-              "stream_url": "https://api.soundcloud.com/tracks/250711755/stream?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z",
+              "stream_url": "https://api.soundcloud.com/tracks/250711755/stream",
               "uri": "https://api.soundcloud.com/tracks/250711755",
               "artwork_url": "https://i1.sndcdn.com/artworks-000150027827-4exjil-large.jpg"
             }]
@@ -47,7 +48,7 @@ export default class Root extends React.Component {
               "id": 250711755,
               "title": "The Chainsmokers - Don't Let Me Down (Illenium Remix)",
               "duration": 219082,
-              "stream_url": "https://api.soundcloud.com/tracks/250711755/stream?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z",
+              "stream_url": "https://api.soundcloud.com/tracks/250711755/stream",
               "uri": "https://api.soundcloud.com/tracks/250711755",
               "artwork_url": "https://i1.sndcdn.com/artworks-000150027827-4exjil-large.jpg"
             }]
@@ -59,6 +60,13 @@ export default class Root extends React.Component {
   updateCurrentTrack(newSong) {
     this.setState({
       currentTrack: Object.assign({}, newSong)
+    })
+  }
+
+  changeName(newName) {
+    this.setState({
+      playlists: Object.assign({}, newName)
+      // should update title only: playlists: [ { title: newName } ]
     })
   }
 
@@ -91,6 +99,7 @@ export default class Root extends React.Component {
 
           <Route exact path="/playlists" render={ (props) => {
             return <Playlists updateCurrentTrack={ this.updateCurrentTrack }
+                              changeName={ this.changeName }
                               playlists={ this.state.playlists }
                               createPlaylist={ this.state.createPlaylist }
                               currentTrack={ this.state.currentTrack }

@@ -8,9 +8,11 @@ export default class Playlist1 extends React.Component {
     super();
     this.state = {
       playlists: [],
+      mode: 'playlist',
     };
-
   }
+
+
 
   render() {
 
@@ -27,6 +29,7 @@ export default class Playlist1 extends React.Component {
             <span className="delete-list-btn">Delete</span>
           </div>
         </div>
+        {/*{ console.log(this.state.mode) }*/}
         <div className="playlist-body">
           <div>
             <ul className="playlist-songs">
@@ -37,6 +40,7 @@ export default class Playlist1 extends React.Component {
                       playlists={ this.props.playlists }
                       currentTrack={ this.props.currentTrack }
                       updateCurrentTrack={ this.props.updateCurrentTrack }
+                      mode={ this.state.mode }
                     />
                   </li>
                 )}
