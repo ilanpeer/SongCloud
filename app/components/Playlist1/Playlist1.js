@@ -1,5 +1,6 @@
+import './Playlist1.scss'
 import React from 'react';
-import Songcard from './Songcard';
+import Songcard from '../Songcard/Songcard';
 import uuid from 'uuid';
 
 export default class Playlist1 extends React.Component {
@@ -9,27 +10,42 @@ export default class Playlist1 extends React.Component {
     this.state = {
       playlists: [],
       mode: 'playlist',
+      title: 'Untitled',
+      focusedPlaylist: null,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
 
-  render() {
+  handleChange(event) {
+    this.setState({value: event.target.title});
+  }
 
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.title);
+    event.preventDefault();
+  }
+
+
+  render() {
     // console.log(this.props.currentTrack);
 
     return (
-      <div>
+      <div className="first-return-from-playlist1">
         <div className="playlists-right">
           <div className="playlist-header">
+            <form onSubmit={ this.handleSubmit }>
             <p> { this.props.title } </p>
             <input type="text"
-                   onChange={ (ev) => props.changeName(ev.target.value) }
-                   defaultValue={'Untitled'}/>
-            <span className="delete-list-btn">Delete</span>
+                   onChange={ (ev) => props.updatePlaylistName(ev.target.title) }
+                   value={ this.state.title }/>
+            <button className="delete-list-btn">Delete</button>
+            </form>
           </div>
         </div>
-        {/*{ console.log(this.state.mode) }*/}
         <div className="playlist-body">
           <div>
             <ul className="playlist-songs">

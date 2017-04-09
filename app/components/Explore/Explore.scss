@@ -1,0 +1,70 @@
+@import '../../assets/styles/colors.scss';
+
+.first-div-return-from-explore-js {
+  display: flex;
+  min-height: 600px;
+  flex-direction: column;
+}
+
+.first-div-return-from-explore-js .genrediv {
+  z-index: 50;
+  flex: 1;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  background: $genreBg;
+  display: flex;
+}
+
+.first-div-return-from-explore-js .explorediv {
+  flex: 2;
+}
+
+.first-div-return-from-explore-js .exploretitle {
+  font-family: 'Roboto-Medium', sans-serif;
+  font-size: 23px;
+  color: $black;
+  padding-left: 15px;
+}
+
+.first-div-return-from-explore-js .explorelist {
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  //height: 680px;
+
+}
+
+.first-div-return-from-explore-js .prevpage,
+.first-div-return-from-explore-js .nextpage {
+  display: inline-block;
+  background: $blue;
+  border-radius: 2px;
+  width: 87px;
+  height: 30px;
+  border: none;
+  font-family: 'Roboto-Medium', sans-serif;
+  font-size: 13px;
+  color: $white;
+}
+
+.first-div-return-from-explore-js .paginationdiv {
+  display: flex;
+  width: 250px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+// loading state
+
+.loading {
+  font-size: 60px;
+  color: $blueDarken;
+  margin: 0 auto;
+  //display: flex;
+  //align-items: center;
+}

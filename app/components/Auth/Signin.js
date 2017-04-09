@@ -1,30 +1,32 @@
+import './Sign.scss';
 import React from 'react';
 import {
-  NavLink
+NavLink
 } from 'react-router-dom';
 
-export default function Signup() {
+export default function Signin() {
 
   return (
     <div className="formgrid">
       <i className="fa fa-mixcloud signin-logo" aria-hidden="true"/>
-      <h1>Song Cloud</h1>
+      <h2>SongCloud</h2>
       <form action="" method="">
-        <h4>Create Account</h4>
+        <h4>Sign In</h4>
 
-        <label htmlFor="username">User Name</label>
-        <input id="username" type="text"/>
+        <label htmlFor="email">Email</label>
+        <input id="email" type="text"/>
 
         <label htmlFor="password">Password</label>
         <input id="password" type="text"/>
 
         <button name="button" type="submit">Continue</button>
 
-        <footer>
-          <p>Already have an account? <NavLink to="/signin"> Sign In</NavLink></p>
-        </footer>
+        <div>
+          <span>Don't have an account yet? <NavLink to="/signup"> Create Account</NavLink></span>
+        </div>
 
       </form>
     </div>
   );
 };
+

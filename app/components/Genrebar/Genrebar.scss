@@ -1,0 +1,23 @@
+@import '../../assets/styles/colors.scss';
+
+.genrebar {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  align-items: center
+}
+
+
+
+.genrebar li:first-child(1) {
+  font-family: 'Roboto-Regular', sans-serif;
+  font-size: 15px;
+  color: $black;
+}
+
+.genrebar li:not(:first-child) {
+  font-family: 'Roboto-Light', sans-serif;
+  font-size: 15px;
+  color: $black;
+  padding-right: 40px;
+}

@@ -1,14 +1,12 @@
 import React from 'react';
+import './Songcard.scss';
 
 
 export default class Songcard extends React.Component {
-
-
   constructor() {
     super();
     this.state = {
       isDropdownOpen: false,
-      mode: " ",
     };
 
   }
@@ -19,36 +17,41 @@ export default class Songcard extends React.Component {
     })
   }
 
-  componentDidMount() {
-
+  songCardOrigin() {
+    if (this.props.mode === 'explore') {
+      return (
+        <div>
+          <p>Add to playlist</p>
+          <button onClick={ this.props.addNewPlaylist } className="dropdown-create-playlist-btn">Create playlist+
+          </button>
+        </div>
+      )
+    }
+    else {
+      return (
+        <p>Edit Playlists</p>
+      )
+    }
   }
 
+  msToTime(duration) {
+    const seconds = parseInt((duration / 1000) % 60);
+    const minutes = parseInt((duration / (1000 * 60)) % 60);
+
+    return (((minutes < 10) ? "0" + minutes : minutes) + ":" + ((seconds < 10) ? "0" + seconds : seconds));
+  }
+
+  trimTitle(title) {
+    if (title.length >= 32) {
+      return title.slice(0, 32) + '...';
+    }
+    else {
+      return title;
+    }
+  }
+
+
   render() {
-    function msToTime(duration) {
-      const seconds = parseInt((duration / 1000) % 60);
-      const minutes = parseInt((duration / (1000 * 60)) % 60);
-
-      return (((minutes < 10) ? "0" + minutes : minutes) + ":" + ((seconds < 10) ? "0" + seconds : seconds));
-    }
-
-    function trimTitle(title) {
-      if (title.length >= 32) {
-        return title.slice(0, 32) + '...';
-      }
-      else {
-        return title;
-      }
-    }
-
-    // console.log(this.props.mode);
-
-    function songCardOrigin() {
-      if(this.state.mode === 'explore') {
-
-      }
-
-    }
-
     const imgUrl = this.props.song.artwork_url ? this.props.song.artwork_url.replace('large', 't300x300') : this.props.song.artwork_url;
 
     const dropToggle = this.state.isDropdownOpen ? 'dropdown' : 'dropdown hidden';
@@ -58,9 +61,9 @@ export default class Songcard extends React.Component {
         <div className="cardimage"
              style={ {backgroundImage: `url(${imgUrl})`} }
              onClick={ () => this.props.updateCurrentTrack(this.props.song) }/>
-        <p className="cardtitle">{trimTitle(this.props.song.title)}</p>
+        <p className="cardtitle">{ this.trimTitle(this.props.song.title) }</p>
         <p className="cardduration"><i className="fa fa-clock-o"
-                                       aria-hidden="true"/> {msToTime(this.props.song.duration)}
+                                       aria-hidden="true"/> { this.msToTime(this.props.song.duration) }
         </p>
         <div className="heart-icon">
           <i className="fa fa-heart-o cardheart" aria-hidden="true"
@@ -69,9 +72,7 @@ export default class Songcard extends React.Component {
 
         <div className={ dropToggle }>
           <div className="dropdown-title">
-            <p>Add to playlist</p>
-            <button onClick={ this.props.createPlaylist } className="dropdown-create-playlist-btn">Create playlist+
-            </button>
+            { this.songCardOrigin() }
           </div>
           <div className="dropdown-body">
             <ul className="dropdown-lists">
@@ -79,7 +80,6 @@ export default class Songcard extends React.Component {
                 {playlist.title}
               </li>)}
             </ul>
-
           </div>
         </div>
       </div>

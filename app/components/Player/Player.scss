@@ -1,0 +1,39 @@
+@import '../../assets/styles/colors.scss';
+
+.playerfooter {
+  flex: 3;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  align-items: center;
+  justify-content: flex-start;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  background: $offWhite;
+  padding-left: 30px;
+}
+
+.playerfooter img[alt="Song thumbnail"] {
+  width: 50px;
+  height: 50px;
+}
+
+.playerfooter p.playersongtitle {
+  font-size: 11px;
+  color: $darkGrey;
+}
+
+.playerfooter .player-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerfooter .playerElm {
+  //margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  //width: 100%;
+}

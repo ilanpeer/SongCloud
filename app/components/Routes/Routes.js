@@ -5,9 +5,9 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import Signup from './Signup';
-import Signin from './Signin';
-import Root from './Root';
+import Signup from '../Auth/Signup';
+import Signin from '../Auth/Signin';
+import Root from '../Root/Root';
 
 
 export default function Routes() {

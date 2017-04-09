@@ -1,0 +1,40 @@
+* {
+  //border: 1px solid red;
+}
+
+main, header, footer, figcaption, section, div, ul, li, h2, h3, p, a {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  list-style: none;
+  text-decoration: none;
+}
+
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #FFFFFF;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+body {
+  padding-top: 110px;
+  padding-bottom: 70px;
+}

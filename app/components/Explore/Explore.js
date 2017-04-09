@@ -1,8 +1,9 @@
+import './Explore.scss'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import findDOMNode from 'react-dom';
-import Songcard from './Songcard';
-import Genrebar from './Genrebar';
+import Genrebar from '../Genrebar/Genrebar';
+import Songcard from '../Songcard/Songcard';
 
 
 export default class Explore extends React.Component {
@@ -17,7 +18,6 @@ export default class Explore extends React.Component {
       mode: 'explore',
       page: 0,
     };
-
   }
 
   loadSongs(props) {
@@ -46,6 +46,7 @@ export default class Explore extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.genre !== this.props.match.params.genre) {
+      const loader = `{<div className="loading"><i className="fa fa-spinner fa-pulse fa-3x fa-fw"/> </div>}`;
       this.loadSongs();
       // this._div.scrollTo(0,0);
       // window.scrollTo = 0;
@@ -62,10 +63,10 @@ export default class Explore extends React.Component {
   }
 
 
-
   nextPage() {
     this.setState({
-      offset: this.state.offset + this.state.limit
+      offset: this.state.offset + this.state.limit,
+
     })
   }
 
@@ -97,7 +98,7 @@ export default class Explore extends React.Component {
                       <Songcard
                         song={ song }
                         updateCurrentTrack={ this.props.updateCurrentTrack }
-                        createPlaylist={ this.props.createPlaylist }
+                        addNewPlaylist={ this.props.addNewPlaylist }
                         playlists={ this.props.playlists }
                         mode={ this.state.mode }
                       />

@@ -1,0 +1,112 @@
+@import '../../assets/styles/colors.scss';
+
+.songcard .cardunit {
+  padding: 15px;
+}
+
+.songcard {
+  width: 220px;
+  height: 140px;
+  background: $white;
+  border: 1px solid $shadowDrop;
+  position: relative;
+}
+
+.songcard .cardtitle,
+.songcard .cardduration {
+  padding: 0 0 0 10px;
+}
+
+.songcard  .cardimage {
+  background-size: cover;
+  background-position: center center;
+  width: 200px;
+  height: 85px;
+  border: 1px solid $shadowDrop;
+  display: block;
+  margin: 10px 10px 7px 10px;
+}
+
+.songcard  .cardtitle {
+  font-family: 'Roboto-Regular', sans-serif;
+  width: 200px;
+  font-size: 0.69rem;
+  color: $darkGrey;
+}
+
+.songcard  .cardduration {
+  font-size: 0.63rem;
+  color: $darkGrey;
+  line-height: 13px;
+}
+
+.songcard .cardheart {
+  font-size: 14px;
+  color: $shadowDrop;
+  transition: all .2s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+.songcard .cardheart:hover {
+  color: #9B9B9B;
+  //transform: scale(1.00);
+}
+
+.songcard .cardheart:active {
+  color: #9B9B9B;
+  //transform: scale(1.00);
+}
+
+.songcard .heart-icon {
+  position: relative;
+}
+
+.songcard .hidden {
+  display: none;
+}
+
+.songcard .dropdown-title {
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.songcard .dropdown-body > ul li {
+  line-height: 12px;
+}
+
+.songcard .dropdown {
+  position: absolute;
+  top: 130px;
+  right: 10px;
+  z-index: 10;
+  width: 130px;
+  height: 110px;
+  background: $white;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  padding: 10px;
+}
+
+.songcard .dropdown-title > p {
+  font-family: 'Roboto-Bold', sans-serif;
+  font-size: 11px;
+  color: $darkGrey;
+}
+
+.songcard .dropdown-create-playlist-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  font-family: 'Roboto-Regular', sans-serif;
+  font-size: 9px;
+  color: $blue;
+}
+
+.songcard .dropdown-body {
+  font-family: 'Roboto-Regular', sans-serif;
+  font-size: 9px;
+  color: $darkGrey;
+  line-height: 12px;
+}
