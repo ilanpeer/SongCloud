@@ -18,11 +18,11 @@ export default class Songcard extends React.Component {
   }
 
   songCardOrigin() {
-    if (this.props.mode === 'explore') {
+    if (this.props.cardmode === 'explore') {
       return (
         <div>
           <p>Add to playlist</p>
-          <button onClick={ this.props.addNewPlaylist } className="dropdown-create-playlist-btn">Create playlist+
+          <button onClick={ this.props.addNewPlaylist(this.props.song) } className="dropdown-create-playlist-btn">Create playlist+
           </button>
         </div>
       )
@@ -53,9 +53,8 @@ export default class Songcard extends React.Component {
 
   render() {
     const imgUrl = this.props.song.artwork_url ? this.props.song.artwork_url.replace('large', 't300x300') : this.props.song.artwork_url;
-
     const dropToggle = this.state.isDropdownOpen ? 'dropdown' : 'dropdown hidden';
-
+    // console.log(this.props.song);
     return (
       <div className="songcard">
         <div className="cardimage"

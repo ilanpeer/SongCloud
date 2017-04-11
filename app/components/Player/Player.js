@@ -33,7 +33,3 @@ export default function Player(props) {
     </div>
   );
 };
-
-
-//https://api.soundcloud.com/tracks/79973942/stream?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z
-//https://api.soundcloud.com/tracks/283158886/streamclient_id=2t9loNQH90kzJcsFCODdigxfp325aq4z

@@ -22,6 +22,7 @@ export default class Root extends React.Component {
     this.updateCurrentTrack = this.updateCurrentTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.addNewPlaylist = this.addNewPlaylist.bind(this);
+    this.deletePlaylist = this.deletePlaylist.bind(this);
 
     this.state = {
       currentTrack: {},
@@ -69,33 +70,31 @@ export default class Root extends React.Component {
     const copiedPlaylists = [...this.state.playlists];
 
     // copy the target playlist and update it's name
+    const newPlaylists = [newName, playlistId, {}];
 
     // playlists: Object.assign({}, newName),
-    this.setState({ })
+    this.setState({})
   }
 
-  addNewPlaylist(song) {
-   console.log('Create playlist+');
+  addNewPlaylist(newName) {
+    const copiedPlaylists = [...this.state.playlists];
+    const newPlaylist = {title: newName};
 
-    if (song) {
-      // render for explore
-    }
-    else {
-      // copy of playlists
-      const copiedPlaylists = [...this.state.playlists];
+    copiedPlaylists.splice((this.state.playlists.length - 1 + 1), 0, newPlaylist);
+    // create uuid
 
-      // create uuid
+    // new playlist object
 
-      // new playlist object
+    // this.props.history.push('/playlists');
+    // event.preventDefault();
+  }
 
-      // this.props.history.push('/playlists');
-      event.preventDefault();
-      this.setState({ })
-    }
+  deletePlaylist(event) {
+    alert('Delete ' + this.state.title + '?');
+    event.preventDefault();
   }
 
   render() {
-
     return (
       <div className="div-return-from-root-js">
         <Topbar/>
@@ -119,6 +118,7 @@ export default class Root extends React.Component {
             return <Playlists updateCurrentTrack={ this.updateCurrentTrack }
                               updatePlaylistName={ this.updatePlaylistName }
                               addNewPlaylist={ this.addNewPlaylist }
+                              deletePlaylist={ this.deletePlaylist }
                               currentTrack={ this.state.currentTrack }
                               playlists={ this.state.playlists }
                               {...props}/>
@@ -131,4 +131,3 @@ export default class Root extends React.Component {
   }
 
 }
-

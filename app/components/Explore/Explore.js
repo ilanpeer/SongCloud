@@ -10,12 +10,14 @@ export default class Explore extends React.Component {
 
   constructor() {
     super();
+    const loader = `{<div class="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"/></div>}`;
+
     this.state = {
       songs: [],
       songsLoading: 'loading...',
       offset: 0,
       limit: 15,
-      mode: 'explore',
+      cardmode: 'explore',
       page: 0,
     };
   }
@@ -40,33 +42,22 @@ export default class Explore extends React.Component {
     this.loadSongs();
   }
 
-  componentWillUpdate() {
-    // this.shouldScrollBottom = ReactDOM.findDOMNode.scrollTop + ReactDOM.findDOMNode.offsetHeight === ReactDOM.findDOMNode.scrollHeight;
-  }
-
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.genre !== this.props.match.params.genre) {
-      const loader = `{<div className="loading"><i className="fa fa-spinner fa-pulse fa-3x fa-fw"/> </div>}`;
       this.loadSongs();
-      // this._div.scrollTo(0,0);
-      // window.scrollTo = 0;
-      // ReactDom.findDOMNode(this).scrollIntoView();
+      this.setState({songsLoading: 'loading...'});
 
     }
     if (prevState.offset !== this.state.offset) {
-      // ReactDOM.findDOMNode.scrollTop = ReactDOM.findDOMNode.scrollHeight;
-      // const scrollAnim = {block: "end", behavior: "smooth"};
-      ReactDOM.findDOMNode(this._div).scrollIntoView();
       this.loadSongs();
+      this.setState({songsLoading: 'loading...'});
+
     }
-
   }
-
 
   nextPage() {
     this.setState({
       offset: this.state.offset + this.state.limit,
-
     })
   }
 
@@ -85,34 +76,35 @@ export default class Explore extends React.Component {
         return <div className="404">AMOD 404 CLASSY -----> Error!</div>;
       case 'loaded':
         return (
-        <div className="first-div-return-from-explore-js">
-          <div className="genrediv">
+          <div className="first-div-return-from-explore-js">
+            <div className="genrediv">
               <Genrebar/>
             </div>
-          {/*{ console.log(this.state.mode) }*/}
             <div className="explorediv">
               <h1 className="exploretitle" ref={(ref) => this._div = ref}>Genre: {this.props.match.params.genre}</h1>
               <ul className="explorelist">
-                {
-                  this.state.songs.map((song, i) => <li className="cardunit" key={ song.id }>
-                      <Songcard
-                        song={ song }
-                        updateCurrentTrack={ this.props.updateCurrentTrack }
-                        addNewPlaylist={ this.props.addNewPlaylist }
-                        playlists={ this.props.playlists }
-                        mode={ this.state.mode }
-                      />
-                    </li>
-                  )}
+                { this.state.songs.map((song, i) =>
+                  <li className="cardunit" key={ song.id }>
+                    <Songcard
+                      song={ song }
+                      updateCurrentTrack={ this.props.updateCurrentTrack }
+                      addNewPlaylist={ this.props.addNewPlaylist }
+                      playlists={ this.props.playlists }
+                      cardmode={ this.state.cardmode }
+                    />
+                  </li>
+                )}
               </ul>
             </div>
             <div className="paginationdiv">
               <button onClick={this.prevPage.bind(this)}
                       className="prevpage"
-                      disabled={this.state.offset === 0}>Prev</button>
+                      disabled={this.state.offset === 0}>Prev
+              </button>
               <p className="">page {this.state.offset / this.state.limit + 1} </p>
               <button onClick={this.nextPage.bind(this)}
-                      className="nextpage">Next</button>
+                      className="nextpage">Next
+              </button>
             </div>
           </div>
         );

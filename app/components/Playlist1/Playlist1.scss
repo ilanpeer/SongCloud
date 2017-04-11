@@ -1,6 +1,5 @@
 @import '../../assets/styles/_colors.scss';
 
-
 .first-return-from-playlist1 .delete-list-btn {
   font-family: 'Roboto-Medium', sans-serif;
   font-size: 13px;
@@ -13,4 +12,23 @@
   color: $red;
   cursor: pointer;
 
+}
+
+.hidden {
+  display: none;
+}
+
+
+.first-return-from-playlist1 .playlist-badge {
+  font-size: 0.75rem;
+  line-height: 1;
+  transform: translateY(-18px);
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  color: $white;
+  padding-top: 5px;
+  text-align: center;
+  background-color: $blue;
 }

@@ -7,56 +7,81 @@ export default class Playlist1 extends React.Component {
 
   constructor() {
     super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleInput = this.toggleInput.bind(this);
+
     this.state = {
       playlists: [],
-      mode: 'playlist',
+      cardmode: 'playlist',
       title: 'Untitled',
-      focusedPlaylist: null,
+      edit: false,
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.title !== this.state.title) {
+      this.setState({
+        title: nextProps.title
+      })
 
-  handleChange(event) {
-    this.setState({value: event.target.title});
+    }
+
+  }
+
+  toggleInput() {
+    this.setState({
+      edit: !this.state.edit
+    });
+    // console.log(this.inputElm);
+    this.inputElm.focus()
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.title);
     event.preventDefault();
+    this.props.updatePlaylistName(event.target.title, event.target.playlists);
+
+    this.setState({
+      edit: false
+    })
   }
 
 
   render() {
-    // console.log(this.props.currentTrack);
-
+    const editTitle = this.state.edit ? 'playlist-header hidden' : 'playlist-header';
+    const editInput = this.state.edit ? 'playlist-header' : 'playlist-header hidden';
+    // console.log(this.state.title);
     return (
       <div className="first-return-from-playlist1">
         <div className="playlists-right">
-          <div className="playlist-header">
-            <form onSubmit={ this.handleSubmit }>
-            <p> { this.props.title } </p>
-            <input type="text"
-                   onChange={ (ev) => props.updatePlaylistName(ev.target.title) }
-                   value={ this.state.title }/>
-            <button className="delete-list-btn">Delete</button>
-            </form>
-          </div>
+          <form onSubmit={ this.handleSubmit }>
+            <div className={ editTitle }>
+              <p onClick={ () => {
+                this.toggleInput()
+              }}> { this.props.title }
+                <span className="playlist-badge">5</span>
+              </p>
+            </div>
+            <div className={ editInput }>
+              <input ref={(input) => {
+                this.inputElm = input
+              }} className="input-title" type="text" defaultValue={ this.props.title }/>
+            </div>
+            <button className="delete-list-btn">Delete
+            </button>
+          </form>
         </div>
-        <div className="playlist-body">
+        <div className=" playlist-body">
           <div>
-            <ul className="playlist-songs">
+            <ul className=" playlist-songs">
               {
-                this.props.songs.map((song, i) => <li className="cardunit" key={ song.id }>
+                this.props.songs.map((song, i) => <li className=" cardunit" key={ song.id }>
                     <Songcard
                       song={ song }
                       playlists={ this.props.playlists }
                       currentTrack={ this.props.currentTrack }
                       updateCurrentTrack={ this.props.updateCurrentTrack }
-                      mode={ this.state.mode }
+                      cardmode={ this.state.cardmode }
                     />
                   </li>
                 )}
