@@ -15,6 +15,7 @@ export default class Playlist1 extends React.Component {
       cardmode: 'playlist',
       title: 'Untitled',
       edit: false,
+      focus: false,
     };
   }
 
@@ -35,6 +36,12 @@ export default class Playlist1 extends React.Component {
     });
     // console.log(this.inputElm);
     this.inputElm.focus()
+  }
+
+  handleChange(event) {
+    console.log(event);
+    this.setState({title: event.target.value});
+
   }
 
   handleSubmit(event) {
@@ -65,7 +72,8 @@ export default class Playlist1 extends React.Component {
             <div className={ editInput }>
               <input ref={(input) => {
                 this.inputElm = input
-              }} className="input-title" type="text" defaultValue={ this.props.title }/>
+              }} className="input-title" type="text" defaultValue={ this.props.title }
+                     onChange={ () => this.handleChange }/>
             </div>
             <button className="delete-list-btn">Delete
             </button>

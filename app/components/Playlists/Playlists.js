@@ -11,7 +11,7 @@ export default function Playlists(props) {
     <div className="first-div-return-from-playlists">
       <div className="playlists-left-side">
         <div className="add-new-playlist">
-          <button type="submit" onClick={props.addNewPlaylist()} className="add-new-playlist-btn">Add new playlist</button>
+          <button type="submit" onClick={ () => props.addNewPlaylist()} className="add-new-playlist-btn">Add new playlist</button>
         </div>
         <ul className="playlists-name-list">
           {props.playlists.map((playlist) => <li className="list-name" key={playlist.id}>{playlist.title}</li>)

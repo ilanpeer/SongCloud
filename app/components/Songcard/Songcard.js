@@ -8,7 +8,6 @@ export default class Songcard extends React.Component {
     this.state = {
       isDropdownOpen: false,
     };
-
   }
 
   dropToggleFunc() {
@@ -17,12 +16,16 @@ export default class Songcard extends React.Component {
     })
   }
 
+  redirectLocation(song) {
+    this.props.playlists(song, '/playlists')
+  }
+
   songCardOrigin() {
     if (this.props.cardmode === 'explore') {
       return (
         <div>
           <p>Add to playlist</p>
-          <button onClick={ this.props.addNewPlaylist(this.props.song) } className="dropdown-create-playlist-btn">Create playlist+
+          <button onClick={ () => this.props.addNewPlaylist(this.props.songs) } className="dropdown-create-playlist-btn">Create playlist+
           </button>
         </div>
       )
@@ -52,6 +55,7 @@ export default class Songcard extends React.Component {
 
 
   render() {
+    // console.log(this.props.playlists);
     const imgUrl = this.props.song.artwork_url ? this.props.song.artwork_url.replace('large', 't300x300') : this.props.song.artwork_url;
     const dropToggle = this.state.isDropdownOpen ? 'dropdown' : 'dropdown hidden';
     // console.log(this.props.song);

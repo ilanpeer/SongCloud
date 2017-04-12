@@ -77,24 +77,37 @@ export default class Root extends React.Component {
     this.setState({})
   }
 
-  addNewPlaylist(newName, redirectTo) {
-    const copiedPlaylists = [...this.state.playlists];
-    const newPlaylist = {id: uuid(), title: 'Untitled', songs: []};
-    // new playlist object
-    copiedPlaylists.splice((this.state.playlists.length - 1 + 1), 0, newPlaylist);
-
+  createNewPlaylist(newSong, redirectTo) {
+    const newPlaylists = [...this.state.playlists];
+    const playlistSongs = newSong ? [newSong] : [];
+    newPlaylists.push({
+      id: uuid(),
+      title: 'Untitled',
+      isFocusMode: true,
+      songs: playlistSongs
+    });
     if (!redirectTo) {
       this.setState({
-        playlists: copiedPlaylists,
+        playlists: newPlaylists
       })
     }
     if (redirectTo) {
       this.setState({
-        playlists: copiedPlaylists,
+        playlists: newPlaylists
       }, () => {
         this.props.history.push(redirectTo);
       })
     }
+  }
+
+  addNewPlaylist(newSong, redirectTo) {
+    const copiedPlaylists = [...this.state.playlists];
+    const newPlaylist = {id: uuid(), title: 'Untitled', songs: []};
+    copiedPlaylists.splice((this.state.playlists.length - 1 + 1), 0, newPlaylist);
+    // new playlist object
+
+    // this.props.history.push('/playlists');
+    // event.preventDefault();
   }
 
   deletePlaylist(event) {
