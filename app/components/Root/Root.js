@@ -19,8 +19,6 @@ export default class Root extends React.Component {
   constructor() {
     super();
 
-
-    this.updateCurrentTrack = this.updateCurrentTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.addNewPlaylist = this.addNewPlaylist.bind(this);
     this.deletePlaylist = this.deletePlaylist.bind(this);
@@ -57,13 +55,6 @@ export default class Root extends React.Component {
         }
       ]
     }
-  }
-
-
-  updateCurrentTrack(newSong) {
-    this.setState({
-      currentTrack: Object.assign({}, newSong)
-    })
   }
 
   updatePlaylistName(newName, playlistId) {
@@ -112,9 +103,7 @@ export default class Root extends React.Component {
             <Redirect to="/explore"/>
           }/>
           <Route exact path="/explore/:genre" render={ (props) => {
-            return <Explore updateCurrentTrack={ this.updateCurrentTrack }
-                            addNewPlaylist={ this.addNewPlaylist }
-                            currentTrack={ this.state.currentTrack }
+            return <Explore addNewPlaylist={ this.addNewPlaylist }
                             playlists={ this.state.playlists }
                             {...props}/>
           }}/>
@@ -123,17 +112,15 @@ export default class Root extends React.Component {
           }/>
 
           <Route exact path="/playlists" render={ (props) => {
-            return <Playlists updateCurrentTrack={ this.updateCurrentTrack }
-                              updatePlaylistName={ this.updatePlaylistName }
+            return <Playlists updatePlaylistName={ this.updatePlaylistName }
                               addNewPlaylist={ this.addNewPlaylist }
                               deletePlaylist={ this.deletePlaylist }
-                              currentTrack={ this.state.currentTrack }
                               playlists={ this.state.playlists }
                               {...props}/>
           }}/>
         </Switch>
 
-        <Player track={ this.state.currentTrack }/>
+        <Player />
       </div>
     )
   }

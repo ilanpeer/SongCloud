@@ -1,7 +1,6 @@
 import './Explore.scss'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import findDOMNode from 'react-dom';
 import Genrebar from '../Genrebar/Genrebar';
 import Songcard from '../Songcard/Songcard';
 
@@ -87,7 +86,6 @@ export default class Explore extends React.Component {
                   <li className="cardunit" key={ song.id }>
                     <Songcard
                       song={ song }
-                      updateCurrentTrack={ this.props.updateCurrentTrack }
                       addNewPlaylist={ this.props.addNewPlaylist }
                       playlists={ this.props.playlists }
                       cardmode={ this.state.cardmode }

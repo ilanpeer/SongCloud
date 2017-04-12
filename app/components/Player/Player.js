@@ -1,15 +1,18 @@
 import './Player.scss'
 import React from 'react';
+import store from '../../store'
 
 
-export default function Player(props) {
-  const songUrl = `${props.track.stream_url}?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z`;
-  const title = String(props.track.title);
-  // console.log('props.track.title --', title);
+export default function Player() {
+  const storeData = store.getState();
+  console.log(storeData.currentTrack);
 
-  if (!props.track) {
+  if (!storeData.currentTrack) {
     return  <div className="playerfooter shifted"/>
   }
+  else {
+  const songUrl = `${storeData.currentTrack.stream_url}?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z`;
+  const title = String(storeData.currentTrack.title);
 
   function trimTitle(title) {
     if (title.length >= 32) {
@@ -20,10 +23,12 @@ export default function Player(props) {
     }
   }
 
+
+
   return (
     <div className="playerfooter">
       <div className="player-left">
-        <img alt="Song thumbnail" src={ props.track.artwork_url }/>
+        <img alt="Song thumbnail" src={ storeData.currentTrack.artwork_url }/>
         <p className="playersongtitle"> { trimTitle(title) } </p>
       </div>
       <audio className="playerElm"
@@ -32,4 +37,5 @@ export default function Player(props) {
              autoPlay/>
     </div>
   );
-};
+}
+}

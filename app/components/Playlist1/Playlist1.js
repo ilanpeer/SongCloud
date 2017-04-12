@@ -87,8 +87,7 @@ export default class Playlist1 extends React.Component {
                     <Songcard
                       song={ song }
                       playlists={ this.props.playlists }
-                      currentTrack={ this.props.currentTrack }
-                      updateCurrentTrack={ this.props.updateCurrentTrack }
+                      currentTrack={ this.props.handleSongClick }
                       cardmode={ this.state.cardmode }
                     />
                   </li>

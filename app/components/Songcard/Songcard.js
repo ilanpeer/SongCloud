@@ -1,5 +1,7 @@
 import React from 'react';
+import store from '../../store'
 import './Songcard.scss';
+
 
 
 export default class Songcard extends React.Component {
@@ -10,6 +12,13 @@ export default class Songcard extends React.Component {
     };
   }
 
+  handleSongClick(song) {
+    store.dispatch({
+      type: 'CURRENT_TRACK',
+      song: song,
+    })
+  }
+
   dropToggleFunc() {
     this.setState({
       isDropdownOpen: !this.state.isDropdownOpen
@@ -17,7 +26,7 @@ export default class Songcard extends React.Component {
   }
 
   redirectLocation(song) {
-    this.props.playlists(song, '/playlists')
+    this.props.addNewPlaylist(song, '/playlists')
   }
 
   songCardOrigin() {
@@ -25,7 +34,7 @@ export default class Songcard extends React.Component {
       return (
         <div>
           <p>Add to playlist</p>
-          <button onClick={ () => this.props.addNewPlaylist(this.props.songs) } className="dropdown-create-playlist-btn">Create playlist+
+          <button onClick={ () => this.redirectLocation(this.props.songs) } className="dropdown-create-playlist-btn">Create playlist+
           </button>
         </div>
       )
@@ -58,12 +67,11 @@ export default class Songcard extends React.Component {
     // console.log(this.props.playlists);
     const imgUrl = this.props.song.artwork_url ? this.props.song.artwork_url.replace('large', 't300x300') : this.props.song.artwork_url;
     const dropToggle = this.state.isDropdownOpen ? 'dropdown' : 'dropdown hidden';
-    // console.log(this.props.song);
     return (
       <div className="songcard">
         <div className="cardimage"
              style={ {backgroundImage: `url(${imgUrl})`} }
-             onClick={ () => this.props.updateCurrentTrack(this.props.song) }/>
+             onClick={ () => this.handleSongClick(this.props.song) }/>
         <p className="cardtitle">{ this.trimTitle(this.props.song.title) }</p>
         <p className="cardduration"><i className="fa fa-clock-o"
                                        aria-hidden="true"/> { this.msToTime(this.props.song.duration) }

@@ -22,7 +22,6 @@ export default function Playlists(props) {
         {
           props.playlists.map((playlist, i) => <div className="playlist-unit" key={ playlist.id }>
               <Playlist1
-                updateCurrentTrack={ props.updateCurrentTrack }
                 title={ playlist.title }
                 id={ playlist.id }
                 songs={ playlist.songs }
