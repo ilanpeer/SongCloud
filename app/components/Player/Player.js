@@ -1,41 +1,46 @@
 import './Player.scss'
 import React from 'react';
-import store from '../../store'
+import {connect} from "react-redux";
 
+function Player(props) {
+  // const storeData = store.getState();
+  // console.log(storeData.currentTrack);
 
-export default function Player() {
-  const storeData = store.getState();
-  console.log(storeData.currentTrack);
-
-  if (!storeData.currentTrack) {
-    return  <div className="playerfooter shifted"/>
+  if (!props.currentTrack) {
+    return <div className="playerfooter shifted"/>
   }
   else {
-  const songUrl = `${storeData.currentTrack.stream_url}?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z`;
-  const title = String(storeData.currentTrack.title);
+    const songUrl = `${props.currentTrack.stream_url}?client_id=2t9loNQH90kzJcsFCODdigxfp325aq4z`;
+    const title = String(props.currentTrack.title);
 
-  function trimTitle(title) {
-    if (title.length >= 32) {
-      return title.slice(0, 32) + '...';
+    function trimTitle(title) {
+      if (title.length >= 32) {
+        return title.slice(0, 32) + '...';
+      }
+      else {
+        return title;
+      }
     }
-    else {
-      return title;
-    }
-  }
 
-
-
-  return (
-    <div className="playerfooter">
-      <div className="player-left">
-        <img alt="Song thumbnail" src={ storeData.currentTrack.artwork_url }/>
-        <p className="playersongtitle"> { trimTitle(title) } </p>
+    return (
+      <div className="playerfooter">
+        <div className="player-left">
+          <img alt="Song thumbnail" src={ props.currentTrack.artwork_url }/>
+          <p className="playersongtitle"> { trimTitle(title) } </p>
+        </div>
+        <audio className="playerElm"
+               src={ songUrl }
+               controls
+               autoPlay/>
       </div>
-      <audio className="playerElm"
-             src={ songUrl }
-             controls
-             autoPlay/>
-    </div>
-  );
+    );
+  }
 }
+
+function mapStateToProps(stateData) {
+  return {
+    currentTrack: stateData.currentTrack
+  }
 }
+
+export default connect(mapStateToProps)(Player);

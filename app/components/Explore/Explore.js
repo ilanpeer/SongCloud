@@ -1,6 +1,5 @@
 import './Explore.scss'
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Genrebar from '../Genrebar/Genrebar';
 import Songcard from '../Songcard/Songcard';
 
@@ -9,7 +8,6 @@ export default class Explore extends React.Component {
 
   constructor() {
     super();
-    const loader = `{<div class="loading"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"/></div>}`;
 
     this.state = {
       songs: [],
@@ -20,6 +18,8 @@ export default class Explore extends React.Component {
       page: 0,
     };
   }
+
+
 
   loadSongs(props) {
     const xhr = new XMLHttpRequest();
@@ -86,6 +86,7 @@ export default class Explore extends React.Component {
                   <li className="cardunit" key={ song.id }>
                     <Songcard
                       song={ song }
+                      match={this.props.match}
                       addNewPlaylist={ this.props.addNewPlaylist }
                       playlists={ this.props.playlists }
                       cardmode={ this.state.cardmode }

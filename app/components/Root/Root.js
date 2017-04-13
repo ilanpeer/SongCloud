@@ -5,23 +5,15 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import Signup from '../Auth/Signup';
-import Signin from '../Auth/Signin';
-import uuid from 'uuid';
 import Topbar from '../Topbar/Topbar';
 import Explore from '../Explore/Explore';
 import Playlists from '../Playlists/Playlists';
 import Player from '../Player/Player';
 
-
 export default class Root extends React.Component {
 
   constructor() {
     super();
-
-    this.updatePlaylistName = this.updatePlaylistName.bind(this);
-    this.addNewPlaylist = this.addNewPlaylist.bind(this);
-    this.deletePlaylist = this.deletePlaylist.bind(this);
 
     this.state = {
       currentTrack: {},
@@ -57,41 +49,6 @@ export default class Root extends React.Component {
     }
   }
 
-  updatePlaylistName(newName, playlistId) {
-    // copy of playlists
-    const copiedPlaylists = [...this.state.playlists];
-
-    // copy the target playlist and update it's name
-    const newPlaylists = [newName, playlistId, {}];
-
-    // playlists: Object.assign({}, newName),
-    this.setState({})
-  }
-
-  addNewPlaylist(newName, redirectTo) {
-    const copiedPlaylists = [...this.state.playlists];
-    const newPlaylist = {id: uuid(), title: 'Untitled', songs: []};
-    // new playlist object
-    copiedPlaylists.splice((this.state.playlists.length - 1 + 1), 0, newPlaylist);
-
-    if (!redirectTo) {
-      this.setState({
-        playlists: copiedPlaylists,
-      })
-    }
-    if (redirectTo) {
-      this.setState({
-        playlists: copiedPlaylists,
-      }, () => {
-        this.props.history.push(redirectTo);
-      })
-    }
-  }
-
-  deletePlaylist(event) {
-    alert('Delete ' + this.state.title + '?');
-    event.preventDefault();
-  }
 
   render() {
     return (
@@ -103,24 +60,22 @@ export default class Root extends React.Component {
             <Redirect to="/explore"/>
           }/>
           <Route exact path="/explore/:genre" render={ (props) => {
-            return <Explore addNewPlaylist={ this.addNewPlaylist }
-                            playlists={ this.state.playlists }
-                            {...props}/>
+            return <Explore playlists={ this.state.playlists }
+                            match={this.props.match}/>
           }}/>
           <Route exact path="/explore" component={() =>
             <Redirect to="/explore/trance"/>
           }/>
 
           <Route exact path="/playlists" render={ (props) => {
-            return <Playlists updatePlaylistName={ this.updatePlaylistName }
-                              addNewPlaylist={ this.addNewPlaylist }
-                              deletePlaylist={ this.deletePlaylist }
-                              playlists={ this.state.playlists }
+            return <Playlists playlists={ this.state.playlists }
+                              match={this.props.match}
+                              addNewPlaylist={this.props.addNewPlaylist}
                               {...props}/>
           }}/>
         </Switch>
 
-        <Player />
+        <Player/>
       </div>
     )
   }

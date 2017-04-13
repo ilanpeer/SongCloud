@@ -1,11 +1,14 @@
 import './Playlist1.scss'
+import store from '../../store'
 import React from 'react';
 import Songcard from '../Songcard/Songcard';
-import uuid from 'uuid';
 
 export default class Playlist1 extends React.Component {
 
   constructor() {
+    const newPlaylist = store.getState().playlists;
+    // console.log(store.getState().playlists);
+
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleInput = this.toggleInput.bind(this);
@@ -19,22 +22,18 @@ export default class Playlist1 extends React.Component {
     };
   }
 
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.title !== this.state.title) {
       this.setState({
         title: nextProps.title
       })
-
     }
-
   }
 
   toggleInput() {
     this.setState({
       edit: !this.state.edit
     });
-    // console.log(this.inputElm);
     this.inputElm.focus()
   }
 
@@ -85,6 +84,7 @@ export default class Playlist1 extends React.Component {
               {
                 this.props.songs.map((song, i) => <li className=" cardunit" key={ song.id }>
                     <Songcard
+                      addNewPlaylist={this.props.addNewPlaylist}
                       song={ song }
                       playlists={ this.props.playlists }
                       currentTrack={ this.props.handleSongClick }

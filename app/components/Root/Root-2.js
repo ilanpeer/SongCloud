@@ -152,3 +152,23 @@ export default class Root extends React.Component {
   }
 
 }
+
+
+
+
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    updateSongInPlayer(song) {
+      dispatch({
+        type: 'UPDATE_CURRENT_TRACK',
+        currentTrack: song
+      });
+    },
+    CreateAddListElmHandler(song) {
+      dispatch({type: 'ADDED-NEW-LIST', addedNewList: true});
+      dispatch({type: 'ADD-NEW-PLAYLIST', song: song, element: this.Elm})
+    }
+  }
+}
